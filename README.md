@@ -7,6 +7,15 @@
 <img src="https://drive.google.com/uc?id=0BwsyidAGqsS_S25NVGc3bjZ4bWs"/>
 <img src="https://drive.google.com/uc?id=0BwsyidAGqsS_dDR6UDlidjNPdTg"/>
 
+
 # instal Custom
 
 git clone https://github.com/Chris54220/Monitor.git /home/pi/domoticz/www/monitor
+
+
+# Mise a jour de la Custom
+
+cd /home/pi/domoticz/www/monitor/
+mv js/frontpage_settings.js js/frontpage_settings_old.js
+git fetch --all
+git reset --hard origin/master
