@@ -1,0 +1,201 @@
+﻿
+#chambre1a
+{
+    position: absolute;
+    width: 160px;					/*130px*/
+    height: 60px;
+    margin-top: -210px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    text-align: left;
+    margin-left: 240px;
+	border: 1px solid transparent;
+	line-height: 60px; 
+}
+
+#chambre1b
+{
+    position: absolute;
+    height: 60px;
+    margin-top: -210px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    margin-left: 410px;					/*380px*/
+    width: 140px;						/*183px*/
+	border: 1px solid transparent;
+	line-height: 60px; 
+	z-index:2;
+}
+
+#chambre1c
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 570px;
+    margin-top: -210px;
+    font-size: 40px;
+	font-family: arimo;
+	font-weight: bold;
+	color: #999;
+	text-shadow: 1px 1px 4px black;
+	border: 1px solid transparent;
+	text-align: center;					/*right*/
+	line-height: 60px; 
+}
+
+#chambre1d
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 240px;
+    margin-top: -141px;
+    font-size: 40px;
+	font-family: arimo;
+	font-weight: bold;
+	color: #999;
+	text-shadow: 1px 1px 4px black;
+	border: 1px solid transparent;
+    text-align: left;
+	line-height: 60px; 
+}
+
+#chambre1e
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 570px;
+    margin-top: -141px;
+    font-size: 40px;
+	font-family: arimo;
+	font-weight: bold;
+	color: #999;
+	text-shadow: 1px 1px 4px black;
+	border: 1px solid transparent;
+    text-align: right;
+	line-height: 60px; 
+}
+
+#chambre1f
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 240px;
+    margin-top: -72px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    text-align: left;
+	border: 1px solid transparent;
+	line-height: 60px; 
+}
+
+#chambre1g
+{
+    position: absolute;
+    height: 60px;
+    margin-top: -72px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    text-align: right;
+    margin-left: 570px;
+    width: 130px;
+	border: 1px solid transparent;
+	line-height: 60px; 
+}
+
+#chambre1
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 454px;
+	padding: 10px;
+	border: 1px solid transparent;
+ 	box-shadow: 1px 1px 1px #999; 
+	border-radius: 5px;
+	height: 185.5px;	
+	line-height: 195px; 
+	font-size: 80px;	
+	color: #999;
+	margin: 0px;
+	margin-left: 230px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#chambre2, #chambre3, #chambre4, #chambre5, #chambre6,
+#chambre7, #chambre8, #chambre9, #chambre10, #chambre11,
+#chambre12, #chambre13, #chambre14, #chambre15, #chambre16
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 162px;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:40px;
+	text-shadow: 1px 1px 4px black;
+/* 	margin: 2px;
+	margin-top: -2px; */
+}
+#chambre4, #chanmbre9, #chanmbre14
+{ 
+	width: 184px; 
+}
+#desc_chambre1
+{
+    font-family: arimo;
+    font-weight: normal;
+	color: #F2DDB3;
+    font-size: 30px;
+    margin-top: -20px;
+	margin-left: 230px;
+    height: 25px;
+    line-height: 1px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#desc_chambre2, #desc_chambre3, #desc_chambre4, #desc_chambre5, #desc_chambre6,
+#desc_chambre7, #desc_chambre8, #desc_chambre9, #desc_chambre10, #desc_chambre11,
+#desc_chambre12, #desc_chambre13, #desc_chambre14, #desc_chambre15, #desc_chambre16
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #F2DDB3;
+	font-size: 17px;
+	margin-top: -20px;
+	height: 25px;
+	line-height: 15px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#ls_chambre1,
+#ls_chambre2, #ls_chambre3, #ls_chambre4, #ls_chambre5, #ls_chambre6,
+#ls_chambre7, #ls_chambre8, #ls_chambre9, #ls_chambre10, #ls_chambre11,
+#ls_chambre12, #ls_chambre13, #ls_chambre14, #ls_chambre15, #ls_chambre16
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+	margin-top: -20px;
+	height: 20px;
+	line-height: 65px;
+	text-shadow: 1px 1px 5px black;
+}

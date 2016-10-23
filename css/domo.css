@@ -1,0 +1,115 @@
+#ls_domo1, #ls_domo2, #ls_domo3, #ls_domo4,
+#ls_domo5, #ls_domo6, #ls_domo7, #ls_domo8, #ls_domo9,
+#ls_domo10, #ls_domo11, #ls_domo12, #ls_domo13, #ls_domo14,
+#ls_domo15, #ls_domo16, #ls_domo17, #ls_domo18, #ls_domo19,
+#ls_domo20, #ls_domo21, #ls_domo22, #ls_domo24, #ls_domo26, #ls_domo23, #ls_domo24, #ls_domo25
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+	margin-top: -20px;
+	height: 20px;
+	line-height: 65px;
+	text-shadow: 1px 1px 5px black;
+	
+}
+
+#desc_domo1, #desc_domo2, #desc_domo3, #desc_domo4,
+#desc_domo5, #desc_domo6, #desc_domo7, #desc_domo8, #desc_domo9,
+#desc_domo10, #desc_domo11, #desc_domo12, #desc_domo13, #desc_domo14,
+#desc_domo15, #desc_domo16, #desc_domo17, #desc_domo18, #desc_domo19,
+#desc_domo20, #desc_domo21, #desc_domo22, #desc_domo24, #desc_domo26, #desc_domo23, #desc_domo24, #desc_domo25
+{
+	font-family: arimo;
+	font-weight: normal;
+/*	color: #999; */
+	color: #F2DDB3;
+	font-size: 17px;
+	margin-top: -20px;
+	height: 25px;
+	line-height: 15px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#domo3, #domo25
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 277px;
+	padding: 5px;
+/*	border: 1px solid #1E1E1F; */
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 152.5px;	
+	line-height: 170px; 
+	font-size: 100px;	
+	color: #999;
+	margin: 0px ;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#domo1, #domo2, #domo4, #domo5, 
+#domo6, #domo7, #domo8, #domo10, 
+#domo11, #domo12, #domo13, #domo15, 
+#domo16, #domo17, #domo18, #domo20, 
+#domo21, #domo22, #domo24, #domo23
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 162px;
+	padding: 10px;
+/*	border: 1px solid #1E1E1F; */
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:40px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#domo14,
+#domo19,
+#domo26
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 162px;
+	padding: 10px;
+/*	border: 1px solid #1E1E1F; */
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:20px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#domo9
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 162px;
+	padding: 10px;
+/*	border: 1px solid #1E1E1F; */
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:10px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#domo8, #domo13, #domo18, #domo24
+{ 
+	width: 184px; 
+}
+

@@ -1,0 +1,17 @@
+﻿#map 
+{
+	width: 935px;
+	height: 505px;
+}
+
+@media screen and (min-height: 610px) {
+    #map 
+	{
+		height: 590px;
+	}
+}
+
+.avoid-clicks {
+  pointer-events: none;
+}
+

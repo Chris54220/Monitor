@@ -1,0 +1,93 @@
+﻿<!-- load page stylesheet -->
+<script>
+$('head').append('<link rel="stylesheet" href="css/logs.css">');
+</script>
+
+<!-- Page -->
+<div class="cnt v-wrap">
+<div class="v-box">
+<!-- contenu -->
+
+<!--
+le contenu de votre page ne doit pas dépasser les dimensions suivantes
+largeur: 962px
+hauteur: 541px
+-->
+			
+<div>
+<div class="frame">
+<div id="showlog"></div>
+</div>
+</div>
+            
+<!-- fin contenu -->
+</div>
+</div>
+<!-- fin page -->
+
+<script>
+
+function RefreshLogData() {
+    clearInterval($.refreshTimerLog);
+
+    
+    $.ajax({
+        url: $.domoticzurl + "/json.htm?type=command&param=getlog&jsoncallback=?"
+    }).done(function(data) {
+        var arrData = [];
+        $.each(data.result, function(i, item) {
+            var x = [item['level'], item['message']];
+            arrData.push(x);
+        });
+
+        var text = "";
+        //show logs
+        for (i = (arrData.length - 1); i > 0; i--) {
+            var totalText = arrData[i][1];
+
+            
+                var res = totalText.split(" ");
+                text += "<font color='#8bc34a' style='padding-right:10px'>" + res[0] + "  " + res[1] + "  </font>";
+                totalText = totalText.replace(res[0] + " " + res[1], "")
+                    .replace("(Meteo)", "<font color='#eceff1'>Météo: </font>")																							//Meteo:
+                    .replace("LUA:", "<font color='#fff176'>LUA: </font>")																								//Lua:
+                    .replace("(433 Mhz)", "<font color='#ec407a'>Rfxcom: </font>")																						//Rfxcom:
+					.replace("(866 Mhz)", "<font color='#0d9ee7'>Zwave: </font>")																						//Zwave:
+					.replace("OpenZWave: Domoticz has send a Switch command!, ", "<font color='#0d9ee7'>Zwave: Domoticz a envoyer une commande de commutation! </font>")//Zwave: Domoticz a envoyer une commande de commutation!
+					.replace("(Virtuel)", "<font color='#347680'>Virtuel: </font>")																						//Virtuel:
+					.replace("Hardware Monitor:", "<font color='#ffa726'>Système: </font>")																				//Système:
+                    .replace("Error:", "<font color='red'>Error: </font>")																								//Error:
+                    .replace("EventSystem: Script event triggered:", "<font color='#ffa726'>Script: </font>")															//Script:
+                    .replace("EventSystem:", "<font color='#ffa726'>EventSystem: </font>")																				//EventSystem:
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					.replace("has been running for more than 10 seconds", "<font color='red'>a fonctionné pendant plus de 10 secondes </font>")						//A fonctionné pendant plus de 10 secondes
+					.replace("Fetching data (System sensors)", "<font color='#F1E9A4'>Récupération capteurs</font>")												//Récupération capteurs
+					.replace("/home/pi/domoticz/scripts/lua/script_device_tempmail.lua", "<font color='#fef2ce'>Temperature Mail </font>")							//Temperature Mail
+					.replace("/home/pi/domoticz/scripts/lua/script_time_info_soleil.lua", "<font color='#fef2ce'>Info Soleil </font>")								//Info Soleil
+					.replace("/home/pi/domoticz/scripts/lua/script_time_info_du_jour.lua", "<font color='#fef2ce'>Info du jour </font>")							//Info du jour
+					.replace("/home/pi/domoticz/scripts/lua/script_time_reveil.lua", "<font color='#fef2ce'>Reveil </font>")										//Reveil
+					.replace("/home/pi/domoticz/scripts/lua/script_time_vigilance_meteofrance.lua", "<font color='#fef2ce'>Vigilance Météo </font>")				//Vigilanec Météo
+					.replace("/home/pi/domoticz/scripts/lua/script_time_trajet_google.lua", "<font color='#fef2ce'>Calcule temps de Trajet Travail </font>")		//Temps de trajet
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					.replace("/home/pi/domoticz/scripts/lua/script_variable_Info_tel_Ch", "<font color='#ffa726'>Tel Chris: </font>")	//Info Tel Chris
+					.replace("ris.lua", "<font color='#F1E9A4'>Récupération capteurs</font>")											//Info Tel Chris
+					.replace("/home/pi/domoticz/scripts/lua/script_variable_Info_tel_Ju", "<font color='#ffa726'>Tel Julie: </font>")	//Info Tel Julie
+					.replace("lie.lua", "<font color='#F1E9A4'>Récupération capteurs</font>")											//Info Tel Julie
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					.replace("Executing script: /home/pi/domoticz/scripts/shell/Son_Test.sh", "<font color='#ffa726'>Jouer Son Test </font>")						//Test
+					.replace("Executing script: /home/pi/domoticz/scripts/shell/Bienvenu_Julie.sh", "<font color='#ffa726'>Jouer Bienvenu Julie </font>")			//Bienvenu Julie
+                text += totalText;
+                text += "<br>";
+            
+        }
+
+        $('#showlog').html(text);
+        //console.log(text);
+    });
+
+    $.refreshTimerLog = setInterval(RefreshLogData, 2000);
+}
+
+new RefreshLogData();
+
+</script>

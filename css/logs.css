@@ -1,0 +1,13 @@
+﻿#showlog
+{
+	width:950px;
+	height:490px;
+	overflow-y:scroll;
+	padding: 10px;
+	font-family: arimo;
+	font-weight: normal;
+	font-size: 17px;
+	text-align:left;
+	color: #F2DDB3;
+	text-shadow: 1px 1px 4px black;
+}

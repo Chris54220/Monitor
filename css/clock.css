@@ -1,0 +1,229 @@
+﻿#ls_clock1,#ls_clock2,#ls_clock3,#ls_clock4,#ls_clock5,#ls_clock6,#ls_clock7,
+#ls_clock8,#ls_clock9,#ls_clock10,#ls_clock11,#ls_clock12,#ls_clock13,#ls_clock14,.ls_clockspace,
+#ls_clock17, #ls_clock18, #ls_clock19, #ls_clock20, #ls_clock21
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+	margin-top: -20px;
+	height: 20px;
+	line-height: 65px;
+	text-shadow: 1px 1px 5px black;
+	
+}
+
+#desc_clock1,#desc_clock2,#desc_clock3,#desc_clock4,#desc_clock5,#desc_clock6,#desc_clock7,
+#desc_clock8,#desc_clock9,#desc_clock10,#desc_clock11,#desc_clock12,#desc_clock13,#desc_clock14,.desc_clockspace,
+#desc_clock17, #desc_clock18, #desc_clock19, #desc_clock20, #desc_clock21
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #F2DDB3;
+	font-size: 17px;
+	margin-top: -20px;
+	height: 25px;
+	line-height: 15px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#clock1,#clock2
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 245px;
+	padding: 5px;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 152.5px;	
+	line-height: 170px; 
+	font-size: 100px;	
+	color: #999;
+	margin: 0px ;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#clock3,#clock4,#clock5,#clock6,#clock7,
+#clock8,#clock9,#clock10,#clock11,#clock12,#clock13,#clock14,
+#clock17, #clock18, #clock19, #clock20, #clock21
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 151.5px;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:40px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#clock17, #clock18, #clock20, #clock21
+{
+	width: 162px;
+}
+
+#clock19
+{ 
+	width: 184px; 
+}
+
+#clock15
+{
+    position: absolute;
+    width: 162px;
+	height: 58px;
+	margin-top: 150px;
+    margin-left: 130px;
+	font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+ /*    text-shadow: 1px 1px 4px black; */
+    border: 1px solid transparent;
+	line-height: 55px; 
+}
+
+#clock16
+{
+    position: absolute;
+    width: 162px;
+	height: 58px;
+    margin-top: 295px;
+    margin-left: 130px;
+	font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+  /*   text-shadow: 1px 1px 4px black; */
+    border: 1px solid transparent;
+	line-height: 55px; 
+}
+
+.clockspace
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 404px;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;	
+	line-height: 170px; 
+	font-size: 100px;	
+	color: #999;
+	margin: 0px ;
+	text-shadow: 1px 1px 4px black;	
+}
+
+.up
+{
+	width: 415px;
+}
+
+.horloge 
+{
+	height: 400px;
+	margin: 40px auto;
+	position: relative;
+	width: 400px;
+/* 	border: 10px solid #3A5486; */
+	border-radius: 50%;
+	background: url("../icons/clockFace.png") no-repeat scroll center 25% rgba(255,255,255,1);
+	background-size: 400px 400px;
+/* 	box-shadow: 0 0 10px #000000, 0 0 50px 10px #CCCCCC inset; */
+}
+
+.day
+{
+	-webkit-filter: invert(0);
+	filter: invert(0);
+	border: 10px solid #3A5486;
+	box-shadow: 0 0 10px #000000, 0 0 50px 10px #cccccc inset;
+}
+
+.night
+{
+	-webkit-filter: invert(1);
+	filter: invert(1);
+	border: 10px solid #C5AB79;
+	box-shadow: 0 0 10px #ffffff, 0 0 50px 10px #cccccc inset;
+}
+					
+.horloge:before 
+{
+	border-radius: 50%;
+	/* box-shadow: -2px -2px 5px #000000 inset, -2px 2px 5px #000000 inset, 2px -2px 5px #000000 inset, 2px 2px 5px #000000 inset; */
+	position: absolute;
+	content: '';
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.day:before 
+{
+	box-shadow: -2px -2px 5px #000000 inset, -2px 2px 5px #000000 inset, 2px -2px 5px #000000 inset, 2px 2px 5px #000000 inset;
+}
+
+.night:before 
+{
+	box-shadow: -2px -2px 5px #ffffff inset, -2px 2px 5px #ffffff inset, 2px -2px 5px #ffffff inset, 2px 2px 5px #ffffff inset;
+}
+
+.seconde
+{
+	left: 198px;
+	top: 25px;
+	height: 180px;
+	border: 2px solid rgba( 174,174,174,0.8);
+}
+
+.minute
+{
+	left: 196px;
+	top: 55px;
+	height: 150px;
+	border: 4px solid rgba( 0,0,0,0.8);
+}
+
+.heure
+{
+	left: 194px;
+	top: 100px;
+	height: 100px;
+	border: 6px solid rgba( 0,0,0,0.8);
+}
+
+.centre
+{
+	border: 6px solid rgba(0,0,0,1);
+	left: 194px;
+	top: 194px;
+}
+
+.rond,.sep
+{
+	position: absolute;
+	border-radius: 50%;
+}
+
+.sep
+{
+	height: 10px;
+	width: 10px;
+	text-align: center;
+	line-height: 10px;
+	top: 195px;
+	left: 195px;
+}
+
+.sep:before{
+/*	content: '•'; */
+	color: #3A5486;
+}

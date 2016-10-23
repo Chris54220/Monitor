@@ -1,0 +1,202 @@
+﻿
+#temp1a, #temp2a
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-top: -210px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    text-align: left;
+    margin-left: 6px;
+	border: 1px solid transparent;
+	line-height: 60px; 
+}
+
+#temp1b, #temp2b
+{
+    position: absolute;
+    height: 60px;
+    margin-top: -210px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    margin-left: 145px;
+    width: 183px;
+	border: 1px solid transparent;
+	line-height: 60px; 
+	z-index:2;
+}
+
+#temp1c, #temp2c
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 338px;
+    margin-top: -210px;
+    font-size: 40px;
+	font-family: arimo;
+	font-weight: bold;
+	color: #999;
+	text-shadow: 1px 1px 4px black;
+	border: 1px solid transparent;
+	text-align: right;
+	line-height: 60px; 
+}
+
+#temp1d, #temp2d
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 6px;
+    margin-top: -141px;
+    font-size: 40px;
+	font-family: arimo;
+	font-weight: bold;
+	color: #999;
+	text-shadow: 1px 1px 4px black;
+	border: 1px solid transparent;
+    text-align: left;
+	line-height: 60px; 
+}
+
+#temp1e, #temp2e
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 338px;
+    margin-top: -141px;
+    font-size: 40px;
+	font-family: arimo;
+	font-weight: bold;
+	color: #999;
+	text-shadow: 1px 1px 4px black;
+	border: 1px solid transparent;
+    text-align: right;
+	line-height: 60px; 
+}
+
+#temp1f, #temp2f
+{
+    position: absolute;
+    width: 130px;
+    height: 60px;
+    margin-left: 6px;
+    margin-top: -72px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    text-align: left;
+	border: 1px solid transparent;
+	line-height: 60px; 
+}
+
+#temp1g, #temp2g
+{
+    position: absolute;
+    height: 60px;
+    margin-top: -72px;
+    font-family: arimo;
+    font-weight: bold;
+    color: #999;
+    font-size: 40px;
+    text-shadow: 1px 1px 4px black;
+    text-align: right;
+    margin-left: 338px;
+    width: 130px;
+	border: 1px solid transparent;
+	line-height: 60px; 
+}
+
+#temp1, #temp2
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 454px;
+	padding: 10px;
+	border: 1px solid transparent;
+ 	box-shadow: 1px 1px 1px #999; 
+	border-radius: 5px;
+	height: 185.5px;	
+	line-height: 195px; 
+	font-size: 80px;	
+	color: #999;
+	margin: 0px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#temp3, #temp4, #temp5, #temp6, #temp7,
+#temp8, #temp9, #temp10, #temp11, #temp12,
+#temp13, #temp14, #temp15, #temp16, #temp17,
+#temp18, #temp19, #temp20, #temp21, #temp22
+ {
+	font-family: arimo;
+	font-weight: bold;
+	width: 162px;
+	padding: 10px;
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:40px;
+	text-shadow: 1px 1px 4px black;
+/* 	margin: 2px;
+	margin-top: -2px; */
+}
+#temp5, #temp10, #temp15, #temp20
+{ 
+	width: 184px; 
+}
+#desc_temp1, #desc_temp2
+{
+    font-family: arimo;
+    font-weight: normal;
+	color: #F2DDB3;
+    font-size: 30px;
+    margin-top: -20px;
+    height: 25px;
+    line-height: 1px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#desc_temp3, #desc_temp4, #desc_temp5, #desc_temp6, #desc_temp7,
+#desc_temp8, #desc_temp9, #desc_temp10, #desc_temp11, #desc_temp12,
+#desc_temp13, #desc_temp14, #desc_temp15, #desc_temp16, #desc_temp17,
+#desc_temp18, #desc_temp19, #desc_temp20, #desc_temp21, #desc_temp22
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #F2DDB3;
+	font-size: 17px;
+	margin-top: -20px;
+	height: 25px;
+	line-height: 15px;
+	text-shadow: 1px 1px 4px black;
+}
+
+#ls_temp1, #ls_temp2,
+#ls_temp3, #ls_temp4, #ls_temp5, #ls_temp6, #ls_temp7,
+#ls_temp8, #ls_temp9, #ls_temp10, #ls_temp11, #ls_temp12,
+#ls_temp13, #ls_temp14, #ls_temp15, #ls_temp16, #ls_temp17,
+#ls_temp18, #ls_temp19, #ls_temp20, #ls_temp21, #ls_temp22
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+	margin-top: -20px;
+	height: 20px;
+	line-height: 65px;
+	text-shadow: 1px 1px 5px black;
+}
