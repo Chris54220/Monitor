@@ -1,4 +1,5 @@
-﻿// Change the text for on/off switches
+﻿
+// Change the text for on/off switches
 var txt_on = 'On';
 var txt_off = 'Off';
 var txt_closed = 'Fermée';
@@ -16,6 +17,7 @@ var txt_switch_off = '\'Switch Off\'';
 var txt_blind_up = '\'Ouverture\'';
 var txt_blind_down = '\'Fermeture\'';
 var txt_blind_stop = '\'Arrêt\'';
+var txt_wrong_code = '\'Mot de pass erroné\'';
 
 // Change backgrounds images,size and brightness
 var bg_day = 'Jour.jpg';					// image de fond le jour, laisser vide pour fond noir

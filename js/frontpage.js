@@ -1490,9 +1490,9 @@ function SceneToggle(idx, switchcmd, Protected)
 				 success: function(result){ 
 				 
 					if (result.message === 'WRONG CODE'){ 
-						console.log('CODE INCORECT'); 
-						lightbox_open('switch', '1000', 'CODE INCORECT'); 						
-					}else{ 						
+						console.log('WRONG CODE'); 						
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{ 						
 						console.log('SUCCES'); 						
 						RefreshData(); 						
 					} 						
@@ -1515,9 +1515,9 @@ function SwitchToggle(idx, switchcmd, Protected)
  			 success: function(result){  
 					  
 					if (result.message === 'WRONG CODE'){  
-						console.log('CODE INCORECT');  
-						lightbox_open('switch', '1000', 'CODE INCORECT');  
-					}else{  
+						console.log('WRONG CODE');    
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 						console.log('SUCCES');  
 						RefreshData();  
 					}  
@@ -1548,9 +1548,9 @@ if (level === txt_off) {
                 success: function(result){  
 					  
 					if (result.message === 'WRONG CODE'){  
-						console.log('CODE INCORECT');  
-						lightbox_open('switch', '1000', 'CODE INCORECT');  
-					}else{  
+						console.log('WRONG CODE');    
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 						console.log('SUCCES');  
 						RefreshData();
 					}
@@ -1575,9 +1575,9 @@ else
                         success: function(result){  
 					  
 							if (result.message === 'WRONG CODE'){  
-								console.log('CODE INCORECT');  
-								lightbox_open('switch', '1000', 'CODE INCORECT');  
-							}else{  
+								console.log('WRONG CODE');   
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 								console.log('SUCCES');  
 								RefreshData();
 							}  
@@ -1599,9 +1599,9 @@ else
 						success: function(result){  
 					  
 							if (result.message === 'WRONG CODE'){  
-								console.log('CODE INCORECT');  
-								lightbox_open('switch', '1000', 'CODE INCORECT');  
-							}else{  
+								console.log('WRONG CODE');    
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 								console.log('SUCCES');  
 								RefreshData();
 							}  
@@ -1634,9 +1634,9 @@ function DimLevel100(OpenDicht,level,idx, Protected)
                         success: function(result){  
 					  
 							if (result.message === 'WRONG CODE'){  
-								console.log('CODE INCORECT');  
-								lightbox_open('switch', '1000', 'CODE INCORECT');  
-							}else{  
+								console.log('WRONG CODE');   
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 								console.log('SUCCES');  
 								RefreshData();
 							}  
@@ -1659,9 +1659,9 @@ function DimLevel100(OpenDicht,level,idx, Protected)
                         success: function(result){  
 					  
 							if (result.message === 'WRONG CODE'){  
-								console.log('CODE INCORECT');  
-								lightbox_open('switch', '1000', 'CODE INCORECT');  
-							}else{  
+								console.log('WRONG CODE');    
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 								console.log('SUCCES');  
 								RefreshData();
 							}  
@@ -1701,9 +1701,9 @@ function ChangeTherm(dimtype,stepsize,idx,currentvalue,thermmax, Protected)
 			 success: function(result){  
 					  
 					if (result.message === 'WRONG CODE'){  
-						console.log('CODE INCORECT');  
-						lightbox_open('switch', '1000', 'CODE INCORECT');  
-					}else{  
+						console.log('WRONG CODE');  
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 						console.log('SUCCES');  
 						RefreshData();  
 					}  
@@ -1837,9 +1837,9 @@ function SwitchSelector(idx,lvl, Protected) {
 			success: function(result){  
 					  
 					if (result.message === 'WRONG CODE'){  
-						console.log('CODE INCORECT');  
-						lightbox_open('switch', '1000', 'CODE INCORECT');  
-					}else{  
+						console.log('WRONG CODE');   
+						lightbox_open('switch', '1000', txt_wrong_code); 
+						}else{  
 						console.log('SUCCES');  
 						RefreshData();  
 					}  
