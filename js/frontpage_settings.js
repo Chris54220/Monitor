@@ -73,7 +73,7 @@ var T00 = '#AEE3F5';
 var T000 = '#EBF4F7';						// couleur de la température sous 0°C
 
 // Change the timeout of the PopUp
-var switch_timeout = '0';					// durée d'affichage (en milisecondes)  [ 0 = désactivée ] 
+var switch_timeout = 0;						// durée d'affichage (en milisecondes)  [ 0 = désactivée ] 
 var wrongCode_timeout = 1500;				// durée d'affichage (en milisecondes)
 var fad_Duration = 200;						// durée de l'animation (en milisecondes)  [ 0 = désactivée ] 
 
