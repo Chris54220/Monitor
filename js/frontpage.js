@@ -116,6 +116,8 @@ function closeRange() {
 // Load meteo widget
 function LoadMeteoWidget() {
 	
+	clearInterval($.refreshMeteoWidget); 
+
 	if (city === ''){
 		$('#popup_meteo0').html('<span>Veuillez indiquer votre ville dans les paramètres<br>exemple:<br>var city = \'paris\'</span>');	
 		$('#popup_meteo1').html('<span>Veuillez indiquer votre ville dans les paramètres<br>exemple:<br>var city = \'paris\'</span>');	
@@ -135,7 +137,7 @@ function LoadMeteoWidget() {
 		$('#popup_meteo4').html(['<img src="http://www.yr.no/place/',place,'/avansert_meteogram.png?timestamp=',Date.now(),'" alt="Ville inconnue..">'].join(''));
 	}
 	
-	setInterval(LoadMeteoWidget, 3600000); // reload every hours
+	$.refreshMeteoWidget = setInterval(LoadMeteoWidget, 3600000); // reload every hours 
 }
 
 function RefreshGraphData(xIDX, vdesc, vtype, vrange, vpara, vunit) {
@@ -370,7 +372,8 @@ function revert()
 function RefreshData()
 {
         clearInterval($.refreshTimer);
-		console.log('refresh');
+		console.log('\n','refresh'); 
+		
 			
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 		
@@ -593,6 +596,7 @@ function RefreshData()
 												var vls=  		item.LastUpdate;						// ´Last Seen´
 												var vdimmercurrent=  item.LevelInt;  				// What is the dim level
 												
+
 												if(vtype === 'Euro'){       
 													vdata=item.Data;
 												}
@@ -1330,7 +1334,7 @@ function RefreshData()
                                 
 																		 
                                 });
-                        });
+                        }, { releaseObjects: true }); 
                 }
 		two = new Date() - two;
 		console.log('switchs: ' + two + 'ms');
@@ -1462,8 +1466,9 @@ function RefreshData()
 
                                 });
                         });
-                }
-				
+                        }, { releaseObjects: true }); 
+                   } 
+				   
 			three = new Date() - three;
 			console.log('scenes/groups: ' + three + 'ms');	
 			
@@ -1499,9 +1504,9 @@ function RefreshData()
                              var vdesc=      $.PageArray_UserVariable[ii][3];         // description
                              var vattr=       $.PageArray_UserVariable[ii][4];         // extra css attributes
                              var vdata=      item[vtype];                            // current value
-                                    
-                        if (typeof vdata === 'undefined') {
-                           vdata='?!';
+							 
+							if (typeof vdata === 'undefined') {
+								vdata='?!'; 
                              }
                      
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////													
@@ -1521,7 +1526,7 @@ function RefreshData()
                                               }
 
                                       });
-                              });
+                              }, { releaseObjects: true }); 
                    }
             
          four = new Date() - four;
@@ -1556,13 +1561,14 @@ function GetCams()
 							var vlabel=     $.PageArray[ii][2];             // cell number from HTML layout
 							var src_1 = 	$.PageArray[ii][3];				// Local network
 							var src_2 = 	$.PageArray[ii][4];				// www
+
 							
 							if(src_2 === '' || typeof src_2 === 'undefined'){
 								src_2 = [location.href.replace(/\/$/, ''),'/icons/offline.jpg'].join('');
 							}	
 						
 							$(['#',vlabel].join('')).html(['<img src=',src_1,' alt=',src_2,' class=\'camera\' >'].join(''));
-							$(['#',vlabel,' img'].join('')).error(function(){
+							$(['#',vlabel,' img'].join('')).on( "error",function(){ 
 																	console.log('vlabel: '+this.parentNode.className);
 																	console.log('on error: '+this.src);
 																	this.onerror=null;
