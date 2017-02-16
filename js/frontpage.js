@@ -1,4 +1,4 @@
-'use strict'; // this runs in strict mode (jslint) 
+'use strict'; // this runs in strict mode (jslint)
 
 // wellcome
 console.log('\n','\n','\n');
@@ -52,8 +52,8 @@ function lightbox_open(id, timeout, txt){
 		if (typeof txt !== 'undefined') {
 			$(['#popup_',id].join('')).html(txt);
 		}
-        //$('div[id^="popup_"]').fadeOut(fad_Duration); // before close all div with same prefix id
-		$(['#popup_',id].join('')).fadeIn(fad_Duration);
+		//$('div[id^="popup_"]').fadeOut(fad_Duration); // before close all div with same prefix id
+        $(['#popup_',id].join('')).fadeIn(fad_Duration);
 		$('#fade').fadeIn(fad_Duration);
 		$('#fade').click(function(){lightbox_close(id);});
 		$(['#popup_',id].join('')).click(function(){lightbox_close(id);});
@@ -63,24 +63,24 @@ function lightbox_open(id, timeout, txt){
 // Close popup
 function lightbox_close(id){
         $(['#popup_',id].join('')).fadeOut(fad_Duration);
-        //$('div[id^="popup_"]').fadeOut(fad_Duration); // close all div with same prefix id 
-		$('#fade').fadeOut(fad_Duration);
+        //$('div[id^="popup_"]').fadeOut(fad_Duration); // close all div with same prefix id
+        $('#fade').fadeOut(fad_Duration);
 		$('#fade').off("click");
 		$(['#popup_',id].join('')).off("click");
 		clearTimeout(tempo);
 }
 
-// show security panel popup 
+// show security panel popup
 function showPanel() {
 	$('#popup_secpanel').html(['<object type="text/html" data="',$.domoticzurl,'/secpanel/index.html" width="100%" height="100%"></object>'].join(''));
-	//$('#popup_secpanel').load('pages/secpanel.html'); 
+	//$('#popup_secpanel').load('pages/secpanel.html');
 	$('#popup_secpanel').fadeIn(fad_Duration);
 	$('#fade').fadeIn(fad_Duration);
 	$('#fade').click(closePanel);
 	tempo = setTimeout(closePanel,60000);
 }
 
-// close security panel popup 
+// close security panel popup
 function closePanel() {
 	$('#popup_secpanel').fadeOut(fad_Duration);
 	$('#fade').fadeOut(fad_Duration);
@@ -89,7 +89,7 @@ function closePanel() {
 	clearTimeout(tempo);
 }
 
-// show freebox remote
+// show freebox remote popup
 function showFreeRemote() {
 	$('#popup_freeRemote').fadeIn(fad_Duration);
 	$('#fade').fadeIn(fad_Duration);
@@ -97,7 +97,7 @@ function showFreeRemote() {
 	tempo = setTimeout(closeFreeRemote,60000);
 }
 
-// close freebox remote popup 
+// close freebox remote popup
 function closeFreeRemote() {
 	$('#popup_freeRemote').fadeOut(fad_Duration);
 	$('#fade').fadeOut(fad_Duration);
@@ -105,7 +105,7 @@ function closeFreeRemote() {
 	clearTimeout(tempo);
 }
 
-// show range popup 
+// show range popup
 function showRange() {
 	$('#popup_range').fadeIn(fad_Duration);
 	$('#fade').fadeIn(fad_Duration);
@@ -113,7 +113,7 @@ function showRange() {
 	tempo = setTimeout(closeRange,60000);
 }
 
-// close range popup 
+// close range popup
 function closeRange() {
 	$('#popup_range').fadeOut(fad_Duration);
 	$('#fade').fadeOut(fad_Duration);
@@ -144,11 +144,11 @@ function LoadMeteoWidget() {
 	else{
 		$('#popup_meteo4').html(['<img src="http://www.yr.no/place/',place,'/avansert_meteogram.png?timestamp=',Date.now(),'" alt="Ville inconnue..">'].join(''));
 	}
-
+	
 	
 }
 
-// get graph infos 
+// get graph infos
 function RefreshGraphData(xIDX, vdesc, vtype, vrange, vpara, vunit) {
 		
 		$.ajax({
@@ -217,7 +217,7 @@ function RefreshGraphData(xIDX, vdesc, vtype, vrange, vpara, vunit) {
     
 }
 
-// create graph 
+// create graph
 function createGraph(seriesData, vdesc, vunit) {
     
     $('#popup_graph').highcharts({
@@ -279,7 +279,7 @@ function createGraph(seriesData, vdesc, vunit) {
 			
 }
 
-// init some vars 
+// init some vars
 var var_sunrise, var_sunset;
 var IsNight = false;
 var error = 0;
@@ -337,8 +337,8 @@ function makeChange(idx,vdata,vdesc,dimstep)
 					var d = Math.round(1+parseInt(ui.value)/100*dimstep);
 					if( d < 0 )
 						d = 0;
-					
-				
+
+                
                 $.ajax({
                         url: [$.domoticzurl,'/json.htm?type=command&param=switchlight&idx=',idx,'&switchcmd=Set Level&level=',d].join(''),
 						success: function(result){
@@ -374,21 +374,21 @@ function revert()
    istrue = false;
 }
 
-var refreshTimer; 
+var refreshTimer;
 
 // Main Frontpage function
 function RefreshData()
 {
-	
-		clearTimeout(refreshTimer); 
+        
+		clearTimeout(refreshTimer);
 		console.log('%cPage refresh', 'color: blue','\n');
 		
 		
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 		
 	$.ajax({
-            url: [$.domoticzurl,'/json.htm?type=command&param=getSunRiseSet&jsoncallback=?'].join(''), 
-        success: function(data) { 
+            url: [$.domoticzurl,'/json.htm?type=command&param=getSunRiseSet&jsoncallback=?'].join(''),
+        success: function(data) {
 		var one = new Date();
 		if (typeof data !== 'undefined') {
                         $.each(data, function(i,item){
@@ -557,20 +557,20 @@ function RefreshData()
 		one = new Date() - one;
 		console.log('Get sunset/background/clock/meteo: ' + one + 'ms');	
 		
-		}, 
-		error: function() { 
-			error += 1; 
-			console.log(['ERROR connect to ',$.domoticzurl].join('')); 
-			if( error >= 10 && $('#popup_offline').css('display') === 'none')  
-			{ 
-				$('#popup_offline').fadeIn(fad_Duration); 
-				$('#fade2').fadeIn(fad_Duration); 
-			} 
-			else{ 
-				RefreshData(); 
-			}	 
-
-		}			
+		},
+		error: function() {
+			error += 1;
+			console.log(['ERROR connect to ',$.domoticzurl].join(''));
+			if( error >= 10 && $('#popup_offline').css('display') === 'none') 
+			{
+				$('#popup_offline').fadeIn(fad_Duration);
+				$('#fade2').fadeIn(fad_Duration);
+			}
+			else{
+				RefreshData();
+			}	
+				
+		}
 	});
 	
 	
@@ -607,7 +607,7 @@ function RefreshData()
 												var vls=  		item.LastUpdate;						// ´Last Seen´
 												var vdimmercurrent=  item.LevelInt;  				// What is the dim level
 												
-														//console.log(item.Name+' : '+vdata); 											
+													//console.log(item.Name+' : '+vdata);
 												if(vtype === 'Euro'){       
 													vdata=item.Data;
 												}
@@ -638,7 +638,7 @@ function RefreshData()
 														vattr = undefined;
 													}
 												}
-			
+												
 												//console.log(item.Name+' : '+vdata);
 												var switchclick, alarmcss, val, plus, min;
 												
@@ -666,7 +666,7 @@ function RefreshData()
 												}
 													
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
-
+											
 											
                                             //Dimmer
                                             
@@ -744,12 +744,12 @@ function RefreshData()
 											
 												else if(vtype === 'SetPoint' && vplusmin > 0) {
 														val = ['<span style=',vattr,'>',vdata,'</span>'].join('');
-														if(vdata >= valarm) { 
-															plus = ['<img src=icons/plusRed.png align=right vspace=4 width=30 onclick="ChangeTherm(\'plus\',',vplusmin,',',item.idx,',',vdata,',',valarm,',',item.Protected,')">'].join(''); 
-														} 
-														else{ 
-															plus = ['<img src=icons/plus.png align=right vspace=4 width=30 onclick="ChangeTherm(\'plus\',',vplusmin,',',item.idx,',',vdata,',',valarm,',',item.Protected,')">'].join(''); 
-														} 
+														if(vdata >= valarm) {
+															plus = ['<img src=icons/plusRed.png align=right vspace=4 width=30 onclick="ChangeTherm(\'plus\',',vplusmin,',',item.idx,',',vdata,',',valarm,',',item.Protected,')">'].join('');
+														}
+														else{
+															plus = ['<img src=icons/plus.png align=right vspace=4 width=30 onclick="ChangeTherm(\'plus\',',vplusmin,',',item.idx,',',vdata,',',valarm,',',item.Protected,')">'].join('');
+														}
 														min = ['<img src=icons/min.png align=left vspace=4 width=30 onclick="ChangeTherm(\'min\',',vplusmin,',',item.idx,',',vdata,',',valarm,',',item.Protected,')">'].join('');
 														vdata = [min,val,plus].join('');
 														//console.log(vdata);
@@ -942,12 +942,12 @@ function RefreshData()
 														}
 													}
 												
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	 
- 
-												// security panel keyboard popup 
-												else if (item.SubType === 'Security Panel') { 
-													switchclick = 'onclick="showPanel()"'; 
-												}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+												// security panel keyboard popup
+												else if (item.SubType === 'Security Panel') {
+													switchclick = 'onclick="showPanel()"';
+												}												
 												
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////													
 												
@@ -999,7 +999,7 @@ function RefreshData()
 															
 													}
 												
-												
+
 												
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////													
 
@@ -1088,7 +1088,7 @@ function RefreshData()
                                                 // if alarm threshold is defined, make value red
 												
 													if (typeof valarm !== 'undefined' && vtype !== 'SetPoint') {
-
+														
 														if ( eval(valarm.replace(/x/g, "Number(vdata)")) ) {  
 															alarmcss='color:red;';
 															if (blink && !$('#'+vlabel).hasClass("blink_me")) {
@@ -1145,7 +1145,7 @@ function RefreshData()
 														else if (parseInt(vdata, 10) >= 1) { vattr=['color:',T01,';',vattr].join(''); } 
 														else if (parseInt(vdata, 10) >= 0) { vattr=['color:',T00,';',vattr].join(''); }
 																					  else  { vattr=['color:',T000,';',vattr].join(''); }
- 													}
+													}
 													else if((vtype === 'Temp' || vtype === 'Chill') && alarmcss !== 'color:red;' && typeof vattr === 'undefined') {
 															 if (parseInt(vdata, 10) >= 35) { vattr=['color:',T35].join(''); } 
 														else if (parseInt(vdata, 10) >= 34) { vattr=['color:',T34].join(''); } 
@@ -1189,8 +1189,8 @@ function RefreshData()
 													// Adds °C after the temperature
 													if(vtype === 'Temp' || vtype === 'Chill') {
 														vdata = ['<span onclick="RefreshGraphData(',item.idx,',\'',vdesc,'\',\'temp\',\'day\',\'te\',\'Température &#8451;\')">',vdata,'<sup style="font-size:50%;" >&#8451;</sup></span>'].join('');
-													}	
-																					  																					
+													}													
+																									
 													// Adds % after the humidity
 													else if(vtype === 'Humidity'){       
 														vdata = ['<span onclick="RefreshGraphData(',item.idx,',\'',vdesc,'\',\'temp\',\'day\',\'hu\',\'Humidité &#37;\')">',vdata,'<span style="font-size:50%;"> &#37;</span></span>'].join('');
@@ -1292,7 +1292,7 @@ function RefreshData()
 													else if (typeof alarmcss === 'undefined' && typeof vattr === 'undefined') {
 														$(['#',vlabel].join('')).html(['<span ',switchclick,'>',vdata,'</span>'].join(''));
 													}
-																											
+																										
 													if ($(['#desc_',vlabel].join('')).length > 0) {
 														$(['#desc_',vlabel].join('')).html(vdesc);
 													}
@@ -1414,8 +1414,8 @@ function RefreshData()
 		two = new Date() - two;
 		console.log('Get switchs: ' + two + 'ms');
 				
-        } 
-	}); 
+        }
+	});
 		
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////		
@@ -1423,7 +1423,7 @@ function RefreshData()
 		// affichage de la partie scène/groupe
 		
 		$.ajax({
-            url: [$.domoticzurl,'/json.htm?type=scenes&plan=',$.roomplan,'&jsoncallback=?'].join('')
+            url: [$.domoticzurl,'/json.htm?type=scenes&plan=',$.roomplan,'&jsoncallback=?'].join(''),
 			success: function(data) {
 		
 				var three = new Date();
@@ -1473,7 +1473,7 @@ function RefreshData()
 															vdesc = '';
 														}else {
 														vdata = txt_off;
-														alarmcss='color:#E24E2A;';			
+														alarmcss='color:#E24E2A;';
 														}
                                                 }
                                                 else if (vdata === 'On' ) {
@@ -1556,7 +1556,7 @@ function RefreshData()
 			console.log('Get scenes/groups: ' + three + 'ms');	
 			
 				
-        } 
+        }
 	});
 		
 		
@@ -1564,9 +1564,9 @@ function RefreshData()
 		
 		      // affichage de la partie UserVariable
 
-      $.ajax({ 
-		url: [$.domoticzurl,'/json.htm?type=command&param=getuservariables&jsoncallback=?'].join(''), 
-		success: function(data) { 
+      $.ajax({
+		url: [$.domoticzurl,'/json.htm?type=command&param=getuservariables&jsoncallback=?'].join(''),
+		success: function(data) {
       
          var four = new Date();
       
@@ -1619,10 +1619,10 @@ function RefreshData()
          console.log('Get user variable : ' + four + 'ms');   
          
             
-        } 
-	}); 
+        }
+	});
 		
-        $.refreshTimer = setTimeout(RefreshData, refresh);
+        refreshTimer = setTimeout(RefreshData, refresh); 
 	
 }
 
