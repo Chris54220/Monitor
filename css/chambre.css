@@ -2,8 +2,9 @@
 #chambre1a
 {
     position: absolute;
-    width: 160px;					/*130px*/
+    width: 130px;
     height: 60px;
+	margin-left: 16px;
     margin-top: -210px;
     font-family: arimo;
     font-weight: bold;
@@ -11,7 +12,6 @@
     font-size: 40px;
     text-shadow: 1px 1px 4px black;
     text-align: left;
-    margin-left: 240px;
 	border: 1px solid transparent;
 	line-height: 60px; 
 }
@@ -26,8 +26,9 @@
     color: #999;
     font-size: 40px;
     text-shadow: 1px 1px 4px black;
-    margin-left: 410px;					/*380px*/
-    width: 140px;						/*183px*/
+    /*margin-left: 145px;*/
+    margin-left: 120px;
+    width: 685px;
 	border: 1px solid transparent;
 	line-height: 60px; 
 	z-index:2;
@@ -36,9 +37,10 @@
 #chambre1c
 {
     position: absolute;
-    width: 130px;
+    width: 600px;
     height: 60px;
-    margin-left: 570px;
+    /*margin-left: 338px;*/
+    margin-left: 305px;
     margin-top: -210px;
     font-size: 40px;
 	font-family: arimo;
@@ -46,8 +48,8 @@
 	color: #999;
 	text-shadow: 1px 1px 4px black;
 	border: 1px solid transparent;
-	text-align: center;					/*right*/
-	line-height: 60px; 
+	text-align: right;
+	line-height: 60px;
 }
 
 #chambre1d
@@ -55,7 +57,7 @@
     position: absolute;
     width: 130px;
     height: 60px;
-    margin-left: 240px;
+    margin-left: 16px;
     margin-top: -141px;
     font-size: 40px;
 	font-family: arimo;
@@ -70,9 +72,10 @@
 #chambre1e
 {
     position: absolute;
-    width: 130px;
+    width: 600px;
     height: 60px;
-    margin-left: 570px;
+    /*margin-left: 338px;*/
+    margin-left: 305px;
     margin-top: -141px;
     font-size: 40px;
 	font-family: arimo;
@@ -89,7 +92,7 @@
     position: absolute;
     width: 130px;
     height: 60px;
-    margin-left: 240px;
+    margin-left: 16px;
     margin-top: -72px;
     font-family: arimo;
     font-weight: bold;
@@ -104,7 +107,10 @@
 #chambre1g
 {
     position: absolute;
+    width: 600px;
     height: 60px;
+    /*margin-left: 338px;*/
+	margin-left: 305px;
     margin-top: -72px;
     font-family: arimo;
     font-weight: bold;
@@ -112,8 +118,6 @@
     font-size: 40px;
     text-shadow: 1px 1px 4px black;
     text-align: right;
-    margin-left: 570px;
-    width: 130px;
 	border: 1px solid transparent;
 	line-height: 60px; 
 }
@@ -122,7 +126,8 @@
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 454px;
+	/*width: 454px;*/
+	width: 890px;
 	padding: 10px;
 	border: 1px solid transparent;
  	box-shadow: 1px 1px 1px #999; 
@@ -132,7 +137,7 @@
 	font-size: 80px;	
 	color: #999;
 	margin: 0px;
-	margin-left: 230px;
+	margin-left: 10px;
 	text-shadow: 1px 1px 4px black;
 }
 
@@ -142,7 +147,8 @@
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 162px;
+	/*width: 162px;*/
+	width: 152px;
 	padding: 10px;
 	border: 1px solid transparent;
 	border-radius: 0px;
@@ -156,7 +162,8 @@
 }
 #chambre4, #chanmbre9, #chanmbre14
 { 
-	width: 184px; 
+	/*width: 184px;*/ 
+	width: 154px; 
 }
 #desc_chambre1
 {
@@ -165,7 +172,6 @@
 	color: #F2DDB3;
     font-size: 30px;
     margin-top: -20px;
-	margin-left: 230px;
     height: 25px;
     line-height: 1px;
 	text-shadow: 1px 1px 4px black;

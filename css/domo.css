@@ -37,7 +37,8 @@
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 277px;
+	/*width: 277px;*/
+	width: 252px;
 	padding: 5px;
 /*	border: 1px solid #1E1E1F; */
 	border: 1px solid transparent;
@@ -59,7 +60,8 @@
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 162px;
+	/*width: 162px;*/
+	width: 152px;
 	padding: 10px;
 /*	border: 1px solid #1E1E1F; */
 	border: 1px solid transparent;
@@ -110,6 +112,7 @@
 
 #domo8, #domo13, #domo18, #domo24
 { 
-	width: 184px; 
+	/*width: 184px; */
+	width: 154px; 
 }
 

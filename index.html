@@ -1,8 +1,8 @@
 ﻿<!DOCTYPE html>
-<html lang="fr" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+<html lang="en" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 <head>
 <meta charset="utf-8">
-<title>Domoticz</title>
+<title>Domoticz Monitor</title>
 <meta name="viewport" content="user-scalable=no"> 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
@@ -11,47 +11,37 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link rel="shortcut icon" type="image/x-icon" href="icons/favicon.ico">
 <link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/jquery-ui.css"> 
+<link rel="stylesheet" href="css/jquery-ui.css">
 <script src="js/jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>  
-<script src="js/jquery.ui.touch-punch.min.js"></script>  
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.ui.touch-punch.min.js"></script>
 <script src="js/jskata.nofreeze.min.js"></script>
 <script src="js/swipe.min.js"></script>	
 <script src="js/highcharts.min.js"></script>
 <script src="js/frontpage_settings.js"></script>
-<script src="js/frontpage.js"></script>
-<script src="js/mqttws31-min.js"></script>  
-<script src="js/mqtt.connect.js"></script>  
+<script src="js/frontpage.min.js"></script>
+<script src="js/mqttws31-min.js"></script>
+<script src="js/mqtt.connect.js"></script>
 <script src="js/snow.js"></script>
 </head>
 <body>
 <div id='black'></div>
+<div id="menu" class="frame"></div>
 <div id='slider' class='swipe'>
 <div class='swipe-wrap'>
-
-
-
-<!-- import pages  ( minimum 3 /!\ ) -->  
-  
-<div><script>  $('div').filter(':last').load("pages/clock.html");		</script></div>		<!-- clock -->
-<div><script>  $('div').filter(':last').load("pages/temp.html");		</script></div>		<!-- temp -->
-<div><script>  $('div').filter(':last').load("pages/chambre.html");		</script></div>		<!-- chambre -->
-<div><script>  $('div').filter(':last').load("pages/domo.html");		</script></div>		<!-- domo -->
-<div><script>  $('div').filter(':last').load("pages/logs.html");		</script></div>		<!-- logs -->
-<div><script>  $('div').filter(':last').load("pages/meteo.html");		</script></div>		<!-- page meteo -->
-<!-- <div><script>  $('div').filter(':last').load("pages/pluie.html");		</script></div>		<!-- page pluie --> 
-<!-- <div><script>  $('div').filter(':last').load("pages/page1.html");		</script></div>		<!-- page 1 -->
-<!-- <div><script>  $('div').filter(':last').load("pages/page2.html");		</script></div>		<!-- page 2 -->
-<!-- <div><script>  $('div').filter(':last').load("pages/page3.html");		</script></div>		<!-- page 3 -->
-<!-- <div><script>  $('div').filter(':last').load("pages/page4.html");		</script></div>		<!-- page 4 -->
-<!-- <div><script>  $('div').filter(':last').load("pages/page5.html");		</script></div>		<!-- page 5 -->
-<!-- <div><script>  $('div').filter(':last').load("pages/trafic.html");		</script></div>		<!-- trafic -->
-
-
-
-
-
 </div>
+<script>
+for( var n = 0, len = $.PagesList.length; n < len - 1; n++ )
+	{
+	$('.swipe-wrap').append('<div></div>');
+	$('div').filter(':last').load('pages/'+$.PagesList[n][0]);
+	if (n <= 8) {
+		$('#menu').append('<div onclick="mySwipe.slide('+$('div').filter(':last').index()+')"><img src="icons/menu/'+$.PagesList[n][1]+'"></div>');
+	} else {
+		$('#menu').append('<div class="autoHide" onclick="mySwipe.slide('+$('div').filter(':last').index()+')"><img src="icons/menu/'+$.PagesList[n][1]+'"></div>');
+	}
+}
+</script>
 </div>
 <div id="popup_switch"></div>
 <div id="popup_graph"></div>
@@ -63,15 +53,14 @@
 <div id="popup_camera"></div>
 <div id="popup_secpanel"></div>
 <div id="popup_selector"></div>
-<div id="popup_range"></div> 
-<audio id="myaudio"></audio> 
-
+<div id="popup_range"></div>
+<audio id="myaudio"></audio>
 <div id="popup_freeRemote"><script>  $('div').filter(':last').load('pages/freeRemote.html');   </script></div>
 <div id="fade"></div>
 <div id="fade2"></div>
 <div id="popup_offline"></div>
 <script src="js/swipeSetup.js"></script>
-<script>if(snow){$(document).snowfall();}</script> 
+<script>if(snow){$(document).snowfall();}</script>
 </body>
 </html>
 

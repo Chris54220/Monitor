@@ -31,8 +31,7 @@ var bg_day_winter = 'wallpaper/winter_day.jpg';		// image de fond pour la saison
 var bg_night_winter = 'wallpaper/winter_night.jpg';
 var bg_size = 'cover';								// taille de l'image de fond (ex: '1024px 768px') 'cover' : "couvre" au mieux tout le fond.
 var bg_dayBright = 0.5;								// luminosité du fond le jour (0=normal 1=noir)
-var bg_nightBright = 0.7;							// luminosité du fond la nuit (0=normal 1=noir)
-
+var bg_nightBright = 0.7;							// luminosité du fond la nuit (0=normal 1=noir) (0=normal 1=noir)
 
 // Change colors of temps
 var T35 = '#FF0000';						// couleur de la température à 35°C
@@ -74,28 +73,28 @@ var T00 = '#AEE3F5';
 var T000 = '#EBF4F7';						// couleur de la température sous 0°C
 
 // Change the timeout of the PopUp
-var switch_timeout = 1000;					// durée d'affichage (en milisecondes)  [ 0 = désactivée ] 
-var wrongCode_timeout = 1500;				// durée d'affichage (en milisecondes) 
-var fad_Duration = 200;						// durée de l'animation (en milisecondes)  [ 0 = désactivée ] 
+var switch_timeout = 0;						// durée d'affichage (en milisecondes)  [ 0 = désactivée ]
+var wrongCode_timeout = 1500;				// durée d'affichage (en milisecondes)
+var fad_Duration = 200;						// durée de l'animation (en milisecondes)  [ 0 = désactivée ]
 
 // Special items
 var city = 'Malzéville';					// localité pour la popup météo option 0,1,2,3 (lors du clic sur l'icon météo) cf http://www.prevision-meteo.ch/
 var place = 'France/Lorraine/Malzéville/';	// localité pour la popup météo option 4 (lors du clic sur l'icon météo) cf http://www.yr.no/
 var blink = true;							// faire clignoter les valeurs en alarme (true/false)
-var showMonth = true;						// affichage du mois dans la date (true/false)
+var showMonth = false;						// affichage du mois dans la date (true/false)
 
 // Swipe options
 var speed = 300;							// durée de l'animation (en milisecondes)
 var delai = 60000;							// défilement automatique, temps avant changement de page (en milisecondes)
-var direction = 'index';					// si delai est différent de 0, choix d'aller à la page suivante ou de revenir à la première page ('next'/'index')
+var direction = 'index';						// si delai est différent de 0, choix d'aller à la page suivante ou de revenir à la première page ('next'/'index')
 
 // Display
-var connectTimeout = 3000;					// durée avant d'afficher un domoticz offline (en millisecondes) var connectTimeout = 3000;					// durée avant d'afficher un domoticz offline (en millisecondes) 
+var connectTimeout = 3000;					// durée avant d'afficher un domoticz offline (en millisecondes)
 var refresh = 8000;							// temps entre 2 rafraîchissements (en millisecondes)
-var snow = false;							// ajout effet chute de neige.. 
+var snow = false;							// ajout effet chute de neige..
 
-// Debug  
-var debug = false;							// affichage des infos de debug dans la console (true/false)  
+// Debug
+var debug = true;							// affichage des infos de debug dans la console (true/false)
 
 // ############################################################################################################
 // #### vvvvv   USER VALUES below vvvvv   #######
@@ -107,6 +106,28 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
 		//$.domoticzurl = "http://192.168.1.6:8080";	// url de connection à domoticz (ex: http://paul:ochon@toto.com:8765)
 		$.domoticzurl = location.protocol + "//" + location.host;		// auto detect (location.protocol + "//paul:ochon@" + location.host)
 	
+        $.PagesList = [
+		
+			// ['html page name (location must be in 'monitor/pages/')','menu icon name (location must be in 'monitor/icons/menu/')],
+			
+				['clock.html','clock.png'],
+				['temp.html','chauffage.png'],
+				['chambre.html','chambre.png'],
+				['domo.html','raspberry.png'],
+				['logs.html','log.png'],
+				['meteo.html','meteo.png'],
+			//	['agenda.html','agenda.png'],
+			//	['pluie.html','pluie.png'],
+			//	['page1.html','light1.png'],
+			//	['page2.html','light2.png'],
+			//	['page3.html','light3.png'],
+			//	['page4.html','light4.png'],
+			//	['page5.html','chauffage.png'],	
+			//	['trafic.html','map.png'],			
+		
+		[]];
+		
+		
         $.PageArray = [
 		
 			// clock page
@@ -115,7 +136,7 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
 				['Exterieur2','Chill','desc_clock1','','','','font-size:200%',''],								// Températures exterieure ressentie
 				['Exterieur','ForecastStr','clock2',''],														// icon météo (idx du capteur de température extérieur virtuel Weather Underground)
 				['0','SunBoth','desc_clock2','','','','color:#F2DDB3;font-size:19px;font-weight:bold'],			// heures soleil dans la description de la cellule clock2
-			 	['Volet','Level','clock3','Volet','','','font-size:80%;color:#EBF4F7'],							// Mode Volet
+			 	['Domoticz Security Panel','Status','clock3','','2'],											//
 				['0','Hide','clock4',''],																		//
 				['0','Hide','clock5',''],																		//
 				['0','Hide','clock7',''],																		//
@@ -127,7 +148,7 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
 				['0','Hide','clock12',''],																		//
 				['0','Hide','clock13',''],																		//
 				['0','Hide','clock14',''],																		//
-				['0','Hide','clock15',''],																		//
+				['0','MonthYear','clock15','','','','color:#3A5486;font-size:150%'],							// Mois et Annee
 				['0','Clock','clock16','','','','color:#3A5486;font-size:100%'],								// heure et date
 				['0','Hide','clock17',''],																		//
 				['0','Hide','clock18',''],																		//
@@ -137,18 +158,10 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
 			
 			// meteo
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
-				['Vigilance Meteo','Level','meteo1','','2','',''],												//Vigilance Météo Logo
-				['Vigilance Meteo','Data','desc_meteo1','','','',''],											//Vigilance Météo texte
-            	['Exterieur','Temp','meteo3','','','','',''],													// Températures exterieure
-				['Exterieur','HumidityStatus','desc_meteo3','','','','color:#88B496;font-size:150%',''],		// Humidité Status Exterieur
-				['Exterieur','ForecastStr','meteo25','','','','',''],											// icon météo (idx du capteur de température extérieur virtuel Weather Underground)
-				['0','Clock','desc_meteo25','','','','color:#F1E9A4;font-family:mekar_script'],					// heure et date
-				['Pluie 1h','Data','meteo6','Pluie 1h','','','color:#F1E9A4'],									// Probabilite de Pluie dans 1h
-				['Pluie 2h','Data','meteo7','Pluie 2h','','','color:#F1E9A4'],									// Probabilite de Pluie dans 2h
-				['Pluie 3h','Data','meteo8','Pluie 3h','','','color:#F1E9A4'],									// Probabilite de Pluie dans 3h
-				['Pluie 4h','Data','meteo9','Pluie 4h','','','color:#F1E9A4'],									// Probabilite de Pluie dans 4h
-            	['Pluie 5h','Data','meteo10','Pluie 5h','','','color:#F1E9A4'],									// Probabilite de Pluie dans 5h
-				['Pluie 6h','Data','meteo11','Pluie 6h','','','color:#F1E9A4'],									// Probabilite de Pluie dans 6h
+				['Vigilance Meteo','Level','meteo1','','2','',''],												// Vigilance Météo Logo
+				['Vigilance Meteo','Data','desc_meteo1','','','',''],											// Vigilance Météo texte
+				['Exterieur','ForecastStr','meteo3','','','','',''],											// icon météo (idx du capteur de température extérieur virtuel Weather Underground)
+				['0','Clock','desc_meteo3','','','','color:#F1E9A4;font-family:mekar_script'],					// heure et date
 				
             // temp
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
@@ -159,8 +172,8 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
                 ['Exterieur2','DirectionStr','temp1d','','','','font-size:80%;color:#EBF4F7',''],				// direction du vent
                 ['Exterieur2','Speed','temp1e','','','','font-size:80%;color:#EBF4F7',''],						// vitesse du vent
 				['Exterieur','HumidityStatus','temp1f','','','','font-size:80%;color:#88B496',''],				// Humidité Status Exterieur
-				['Pluie 1h','Data','temp1g','','','','font-size:80%;color:#EBF4F7','x > 65'],					// Probabilite de Pluie dans 1h
-				['0','Temp','temp2','','','','',''],															// Temperature Interieur
+				['Pluie','Data','temp1g','','','','font-size:30%;color:#EBF4F7',''],							// Pluie
+				['Salon','Temp','temp2','','','','',''],														// Temperature Interieur
 				['0','Text','desc_temp2','Interieur','','','',''],												//
                 ['0','Humidity','temp2a','','','','font-size:80%;color:#EBF4F7',''],							// Humidité Interieur
 				['0','SetPoint','temp2b','Interieur','','0.5','color:#72DDEA','23'],							// Consigne
@@ -168,7 +181,7 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
                 ['0','Hide','temp2d','','','','',''],															//
 				['0','Hide','temp2e','','','','',''],															//
                 ['0','Hide','temp2f','','','','',''],															//
-				['Chauffage','Level','temp2g','Chauffage','','','font-size:50%;color:#EBF4F7',''],				// Mode Chauffage
+				['Chauffage','Level','temp2g','Chauffage','2','','',''],										// Mode Chauffage
           		['0','Hide','temp3','','','','',''],															//
           		['0','Hide','temp4','','','','',''],															//
           		['Refrigerateur','Temp','temp5','Réfrigérateur','','','','x < 2 || x > 6'],						// Temperature Réfrigérateur
@@ -198,20 +211,20 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
             	['Volet Chambre','Level','chambre1a','Volet','','','',''],										// Volet Chambre
             //	['0','','chambre1b','','','','',''],															// Lampe Tout la chambre 
 				['Fenetre Chambre','Status','chambre1c','Fenetre','2','','',''],								// Fenetre Chambre
-				['0','Hide','chambre1d','','','','',''],														//
-                ['0','Hide','chambre1e','','','','',''],														//
-				['0','Hide','chambre1f','','','','',''], 														//
-				['0','Hide','chambre1g','','','','',''],														//
-				['Chevet Chris','Status','chambre2','Chevet Chris','2','','',''],								// Lamp chevet Chris
+				['0','','chambre1d','','','','',''],														//
+                ['0','','chambre1e','','','','',''],														//
+				['Mode Volet Chambre','Level','chambre1f','Mode Volet','','','font-size:50%;color:#EBF4F7',''], //Mode Volet Chambre
+				['0','','chambre1g','','','','',''],														//
+				//['0','Hide','chambre2','','','','',''],														// Reveil Chris
           		['0','Hide','chambre3','','','','',''],															//
-          		['Dressing','Status','chambre4','Dressing','2','','',''],										// Lamp dressing
+          		//['0','Hide','chambre4','','','','',''],														// Reveil General
           		['0','Hide','chambre5','','','','',''],															//			
-				['Chevet Julie','Status','chambre6','Chevet Julie','2','','',''],								// Lamp chevet Julie
-          		['0','Hide','chambre7','','','','',''],															//	
+				//['0','Hide','chambre6','','','','',''],														// Reveil Julie
+          		['Chevet Chris','Status','chambre7','Chevet Chris','2','','',''],								// Lamp chevet Chris
 				['0','Hide','chambre8','','','','',''],															//
-          		['0','Hide','chambre9','','','','',''],															//	
+          		['Dressing','Status','chambre9','Dressing','2','','',''],										// Lamp dressing	
 				['0','Hide','chambre10','','','','',''],														//
-          		['0','Hide','chambre11','','','','',''],														//	
+          		['Chevet Julie','Status','chambre11','Chevet Julie','2','','',''],								// Lamp chevet Julie
 				['0','Hide','chambre12','','','','',''],														//
           		['0','Hide','chambre13','','','','',''],														//	
 				['0','Hide','chambre14','','','','',''],														//
@@ -304,31 +317,31 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
 			//domo
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
 				['0','Hide','domo1','','','','',''],															// 
-				['Reboot','Status','domo2','Reboot','2','','',''],												// Raspberry Reboot
+				['0','Hide','domo2','','','','',''],															//
 				['Raspi','Temp','domo3','Raspberry','','','',''],												// Temperature Raspberry
 				['0','Hide','domo4','','','','',''],															// 
           		['0','Hide','domo5','','','','',''],															//
                 ['0','Hide','domo6','','','','',''],															//
 				['Raspi CPU','Data','domo7','CPU','','','color:#EBF4F7',''],									// CPU Raspberry
 				['0','Hide','domo8','','','','',''],															//
-				['0','Hide','domo9','','','','',''],															//
+				//['0','Hide','domo9','','','','',''],															// Ip public
 				['0','Hide','domo10','','','','',''],															//
 				['0','Hide','domo11','','','','',''],															//
 				['Raspi Memory','Data','domo12','Memory','','','color:#EBF4F7',''],								// Memory Raspberry
 				['0','Hide','domo13','','','','',''],															//
-				['0','Hide','domo14','','','','',''],															//
+				['PING','Data','domo14','Ping','','','color:#EBF4F7',''],										// Ping
 				['0','Hide','domo15','','','','',''],															//
 				['0','Hide','domo16','','','','',''],															//
 				['Raspi SD/boot','Data','domo17','SD/boot','','','color:#EBF4F7',''],							// SD/boot Raspberry
 				['0','Hide','domo18','','','','',''],															//
-				['0','Hide','domo19','','','','',''],															//
+				['DOWNLOAD','Data','domo19','Download','','','color:#EBF4F7',''],								// Download
 				['0','Hide','domo20','','','','',''],															//
-				['Test Son','Status','domo21','Test Son','2','','',''],											// Raspberry Test Son
-				['Raspi HDD/root','Data','domo22','HDD/root','','','color:#EBF4F7',''],							// HDD Raspberry
+				['0','Hide','domo21','','','','',''],															//
+				['Raspi SD/root','Data','domo22','SD/root','','','color:#EBF4F7',''],							// HDD Raspberry
 				['0','Hide','domo23','','','','',''],															//
 				['0','Hide','domo24','','','','',''],															//
 				['0','Date','domo25','','','','font-size:50%;color:#F1E9A4;font-family:mekar_script',''],		// Date
-				['0','Hide','domo26','','','','',''],							//
+				['UPLOAD','Data','domo26','Upload','','','color:#EBF4F7',''],									// Upload
 				
 				
         []];
@@ -340,23 +353,33 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
                 ['0','','','','',''],																	//
                 ['0','','','','',''],																	//
 			
-        []];	
+        []];
 		$.PageArray_UserVariable = [      // placez ci dessous vos userVariable
             
 			//['idx','value','cellule','description','override css'],
            
                 ['Info_du_jour','Value','clock9','','color:#e77800'],									// Info du jour
-				['0','','','',''],																		//
+				['IP_PUBLIC','Value','domo9','IP Public','color:#EBF4F7;font-size:200%'],				// Ip public
+				['Reveil_Chris','Value','chambre2','Reveil Chris','color:#EBF4F7'],						// Reveil Chris
+				['Reveil_Event','Value','chambre4','Reveil Event','color:#EBF4F7'],						// Reveil Event
+				['Reveil_Julie','Value','chambre6','Reveil Julie','color:#EBF4F7'],						// Reveil Julie
+				['Pluie à 10mn','Value','meteo6','Pluie à 10mn','font-size:30%'],  
+				['Pluie à 20mn','Value','meteo7','Pluie à 20mn','font-size:30%'],   
+				['Pluie à 30mn','Value','meteo8','Pluie à 30mn','font-size:30%'],
+				['Pluie à 40mn','Value','meteo9','Pluie à 40mn','font-size:30%'],
+				['Pluie à 50mn','Value','meteo10','Pluie à 50mn','font-size:30%'],
+				['Pluie à 60mn','Value','meteo11','Pluie à 60mn','font-size:30%'],
 				['0','','','',''],																		//
           
         []];
-		  
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	  
-  
-		// MQTT  
-		  
-		  
-		// called when a message arrives  
+		
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+
+		// MQTT
+		
+		
+		// called when a message arrives
 		function onMessageArrived(message) {  
 			console.log('%cMQTT Message Arrived:','color: #c44800','\n',message.payloadString);  
   
@@ -369,135 +392,71 @@ var debug = false;							// affichage des infos de debug dans la console (true/f
 			  
 		////////////////////////////////////////////////////////////////////////////////	  
 					  
-					// si le nom est "d1", changer de page  
-					case "d1": 						// nom du bouton de la télécommande  
-						  
-						if (message.nvalue == 1)	// status On   
-							mySwipe.prev(); 		// page précédente  
-							  
-						if (message.nvalue == 0)	// status Off  
-							mySwipe.next(); 		// page suivante  
-							  
-						break;  
+			// afficher une page précise suivant le choix d'un switch sélecteur
+			case "page": // nom du switch sélecteur
+				
+				if (message.svalue1 == 0)   // sélecteur à 0 % 
+				   mySwipe.slide(0);   // vers page 0
+				if (message.svalue1 == 10)   // sélecteur à 10 % 
+				   mySwipe.slide(1);   // vers page 1
+				if (message.svalue1 == 20)
+				   mySwipe.slide(2);   // vers page 2
+				if (message.svalue1 == 30)
+				   mySwipe.slide(3);   // vers page 3
+				if (message.svalue1 == 40)
+				   mySwipe.slide(4);   // vers page 4
+				if (message.svalue1 == 50) 
+				   mySwipe.slide(5);   // vers page 5
+				if (message.svalue1 == 60)
+				   mySwipe.slide(6);   // vers page 6
+				if (message.svalue1 == 70)
+				   mySwipe.slide(7);   // vers page 7
+				if (message.svalue1 == 80)
+				   mySwipe.slide(8);   // vers page 8
+				if (message.svalue1 == 90)
+				   mySwipe.slide(9);   // vers page 9
+				if (message.svalue1 == 100)
+				   mySwipe.slide(10);   // vers page 10
+				   
+				break; 
 						  
 		////////////////////////////////////////////////////////////////////////////////  
 					  
-					case "Cafetiere on": // nom du bouton pushOn de mise en route de la cafetière  
-							  
- 							// affiche une popup text  
-							lightbox_open('switch',25000,'café en préparation');	  
-							  
-						break;	  
+			// Sonnette (Caméra en grand + Sonnerie)
+			case "Sonnette": // nom du bouton de la télécommande
+			
+				var oAudio = document.getElementById('myaudio');
+				if (message.nvalue == 1){		// status On 
+					oAudio.src = "sounds/sonnette.mp3";
+					oAudio.play();
+					var source = "http://www.saintveranmeteo.eu/villagesaintveranwebcam.jpg";
+					$('#popup_camera').html('<img src='+source+' >');	// charge le flux dans la popup caméra
+					lightbox_open('camera', 25000);	// afficher la popup 25 secondes 
+				}
+				if (message.nvalue == 0)		// status Off
+					lightbox_close('camera');	// fermer la popup
+					
+				break;		  
   
 		////////////////////////////////////////////////////////////////////////////////  
 						  
-					//lire une musique  
-					case "d2": // nom du bouton de la télécommande  
-					  
-						/*  
-										/!\  IMPORTANT  /!\  
-						  
-						 à fin de pouvoir lancer de l'audio automatiquement  
-						 il est nécessaire de désactiver la sécurité suivante  
-						 "Exiger un geste de l'utilisateur pour lire des éléments multimédias"  
-						   
-						 saisissez cette adresse dans chrome et désactivez l'option  
-						   
-						 chrome://flags/#disable-gesture-requirement-for-media-playback  
-						   
-						*/  
-						  
-						var oAudio = document.getElementById('myaudio');  
-  
-						if (message.nvalue == 1){	// status On   
-							  
-							oAudio.src = "http://icecast.skyrock.net/s/natio_mp3_128k";  
-							oAudio.play();  
-						}	  
-						  
-						if (message.nvalue == 0){	// status Off  
-						  
-							oAudio.pause();	// stop  
-							oAudio.src = "";  
-						}	  
-						  
-						break;  
-						  
-		////////////////////////////////////////////////////////////////////////////////  
-						  
-					// afficher la caméra en grand  
-					case "d3": // nom du bouton de la télécommande  
-						  
-						if (message.nvalue == 1){		// status On   
-							var source = "http://www.saintveranmeteo.eu/villagesaintveranwebcam.jpg";	// source du flux de la caméra  
-							$('#popup_camera').html('<img src='+source+' >');	// charge le flux dans la popup caméra  
-							lightbox_open('camera', 25000);	// afficher la popup 25 secondes  
-						}	  
-						if (message.nvalue == 0)		// status Off  
-							lightbox_close('camera');	// fermer la popup  
-							  
-						break;	  
-						  
-		////////////////////////////////////////////////////////////////////////////////  
-					  
-					// annonces vocales  
-					case "tts": // nom du widget text  
-					  
-						/*  
-										/!\  IMPORTANT  /!\  
-						  
-						 à fin de pouvoir lancer de l'audio automatiquement  
-						 il est nécessaire de désactiver la sécurité suivante  
-						 "Exiger un geste de l'utilisateur pour lire des éléments multimédias"  
-						   
-						 saisissez cette adresse dans chrome et désactivez l'option  
-						   
-						 chrome://flags/#disable-gesture-requirement-for-media-playback  
-						   
-						*/  
-						  
-						var text = message.svalue1;  
-						var oAudio = document.getElementById('myaudio');  
-						var launched = false;  
-						oAudio.src = "sounds/Arpeggio.ogg";	// ding dong d'alerte  
-						oAudio.play();  
-						oAudio.onended = function() {  
-											if ( !launched ) {  
-												launched = true;  
-												oAudio.src = "http://www.voxygen.fr/sites/all/modules/voxygen_voices/assets/proxy/index.php?method=redirect&text="+text+"&voice=Fabienne";  
-												oAudio.play();  
-											}  
-										};  
-						  
-						break;  
-  
-		////////////////////////////////////////////////////////////////////////////////  
-						  
-					// afficher une page précise suivant le choix d'un switch sélecteur  
-					case "page": // nom du switch sélecteur  
-						  
-						if (message.svalue1 == 10)   // sélecteur à 10 %  
-						   mySwipe.slide(0);   // vers page 1 (la première page est numéroté 0)  
-						if (message.svalue1 == 20)  
-						   mySwipe.slide(1);   // vers page 2  
-						if (message.svalue1 == 30)  
-						   mySwipe.slide(2);   // vers page 3  
-						if (message.svalue1 == 40)  
-						   mySwipe.slide(3);   // vers page 4  
-						if (message.svalue1 == 50)  
-						   mySwipe.slide(4);   // vers page 5  
-						if (message.svalue1 == 60)  
-						   mySwipe.slide(5);   // vers page 6  
-						if (message.svalue1 == 70)  
-						   mySwipe.slide(6);   // vers page 7  
-						if (message.svalue1 == 80)  
-						   mySwipe.slide(7);   // vers page 8  
-						if (message.svalue1 == 90)  
-						   mySwipe.slide(8);   // vers page 9  
-						if (message.svalue1 == 100)  
-						   mySwipe.slide(9);   // vers page 10  
-						     
-						break;	  						  
+			// annonce vocale  
+			case "tts": // nom du widget text  
+								  
+				var text = message.svalue1;  
+				var oAudio = document.getElementById('myaudio'); 
+				var launched = false;  
+				oAudio.src = "sounds/Arpeggio.ogg";	// ding dong d'alerte  
+				oAudio.play();
+ 				oAudio.onended = function() {  
+									if ( !launched ) {  
+										launched = true;  
+										oAudio.src = "http://www.voxygen.fr/sites/all/modules/voxygen_voices/assets/proxy/index.php?method=redirect&text="+text+"&voice=Fabienne";  
+										oAudio.play();  
+									}  
+				}
+				
+				break;	  						  
 						  
 			}   
 		    

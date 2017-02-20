@@ -20,6 +20,26 @@ hauteur: 541px
 </div>
 </div>
             
+
+<div class="autoHide">
+<div class="frame">
+	<div id="ls_logs1"></div><div id="logs1">--</div><div id="desc_logs1">logs1</div>
+</div>
+<div class="frame">
+	<div id="ls_logs2"></div><div id="logs2">--</div><div id="desc_logs2">logs2</div>
+</div>
+<div class="frame">
+	<div id="ls_logs3"></div><div id="logs3">--</div><div id="desc_logs3">logs3</div>
+</div>
+<div class="frame">
+	<div id="ls_logs4"></div><div id="logs4">--</div><div id="desc_logs4">logs4</div>
+</div>
+<div class="frame">
+	<div id="ls_logs5"></div><div id="logs5">--</div><div id="desc_logs5">logs5</div>
+</div>
+</div>
+
+
 <!-- fin contenu -->
 </div>
 </div>
@@ -49,33 +69,20 @@ function RefreshLogData() {
                 var res = totalText.split(" ");
                 text += "<font color='#8bc34a' style='padding-right:10px'>" + res[0] + "  " + res[1] + "  </font>";
                 totalText = totalText.replace(res[0] + " " + res[1], "")
-                    .replace("(Meteo)", "<font color='#eceff1'>Météo: </font>")																							//Meteo:
-                    .replace("LUA:", "<font color='#fff176'>LUA: </font>")																								//Lua:
-                    .replace("(433 Mhz)", "<font color='#ec407a'>Rfxcom: </font>")																						//Rfxcom:
-					.replace("(866 Mhz)", "<font color='#0d9ee7'>Zwave: </font>")																						//Zwave:
-					.replace("OpenZWave: Domoticz has send a Switch command!, ", "<font color='#0d9ee7'>Zwave: Domoticz a envoyer une commande de commutation! </font>")//Zwave: Domoticz a envoyer une commande de commutation!
-					.replace("(Virtuel)", "<font color='#347680'>Virtuel: </font>")																						//Virtuel:
-					.replace("Hardware Monitor:", "<font color='#ffa726'>Système: </font>")																				//Système:
-                    .replace("Error:", "<font color='red'>Error: </font>")																								//Error:
-                    .replace("EventSystem: Script event triggered:", "<font color='#ffa726'>Script: </font>")															//Script:
-                    .replace("EventSystem:", "<font color='#ffa726'>EventSystem: </font>")																				//EventSystem:
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					.replace("has been running for more than 10 seconds", "<font color='red'>a fonctionné pendant plus de 10 secondes </font>")						//A fonctionné pendant plus de 10 secondes
-					.replace("Fetching data (System sensors)", "<font color='#F1E9A4'>Récupération capteurs</font>")												//Récupération capteurs
-					.replace("/home/pi/domoticz/scripts/lua/script_device_tempmail.lua", "<font color='#fef2ce'>Temperature Mail </font>")							//Temperature Mail
-					.replace("/home/pi/domoticz/scripts/lua/script_time_info_soleil.lua", "<font color='#fef2ce'>Info Soleil </font>")								//Info Soleil
-					.replace("/home/pi/domoticz/scripts/lua/script_time_info_du_jour.lua", "<font color='#fef2ce'>Info du jour </font>")							//Info du jour
-					.replace("/home/pi/domoticz/scripts/lua/script_time_reveil.lua", "<font color='#fef2ce'>Reveil </font>")										//Reveil
-					.replace("/home/pi/domoticz/scripts/lua/script_time_vigilance_meteofrance.lua", "<font color='#fef2ce'>Vigilance Météo </font>")				//Vigilanec Météo
-					.replace("/home/pi/domoticz/scripts/lua/script_time_trajet_google.lua", "<font color='#fef2ce'>Calcule temps de Trajet Travail </font>")		//Temps de trajet
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					.replace("/home/pi/domoticz/scripts/lua/script_variable_Info_tel_Ch", "<font color='#ffa726'>Tel Chris: </font>")	//Info Tel Chris
-					.replace("ris.lua", "<font color='#F1E9A4'>Récupération capteurs</font>")											//Info Tel Chris
-					.replace("/home/pi/domoticz/scripts/lua/script_variable_Info_tel_Ju", "<font color='#ffa726'>Tel Julie: </font>")	//Info Tel Julie
-					.replace("lie.lua", "<font color='#F1E9A4'>Récupération capteurs</font>")											//Info Tel Julie
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-					.replace("Executing script: /home/pi/domoticz/scripts/shell/Son_Test.sh", "<font color='#ffa726'>Jouer Son Test </font>")						//Test
-					.replace("Executing script: /home/pi/domoticz/scripts/shell/Bienvenu_Julie.sh", "<font color='#ffa726'>Jouer Bienvenu Julie </font>")			//Bienvenu Julie
+                    .replace("User:", "<font color='#81d4fa'>User: </font>")
+                    .replace("(teleinfo)", "<font color='#0099CC'>téléinfo: </font>")
+                    .replace("(météo)", "<font color='#66FF66'>météo: </font>")
+                    .replace("LUA:", "<font color='#fff176'>LUA: </font>")
+                    .replace("(Weather Underground)", "<font color='#eceff1'>Weather Underground: </font>")
+                    .replace("(rfxcom)", "<font color='#ec407a'>rfxcom: </font>")
+                    .replace("Hardware Monitor:", "<font color='#ffa726'>Hardware Monitor: </font>")
+                    .replace("Error:", "<font color='red'>Error: </font>")
+                    .replace("EventSystem: Script event triggered:", "<font color='#ffa726'>Script event triggered: </font>")
+                    .replace("EventSystem:", "<font color='#ffa726'>EventSystem: </font>")
+                    .replace("(Philips Hue Bridge)", "<font color='#e91e63'>Philips Hue: </font>")
+                    .replace("/home/vil1driver/domoticz/scripts/lua/", "");
+                    
+
                 text += totalText;
                 text += "<br>";
             

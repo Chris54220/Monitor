@@ -1,0 +1,62 @@
+﻿.sonnette_box
+{
+	width: 800px;
+	height: 480px;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+}
+
+#ls_sonnette_1, #ls_sonnette_2, #ls_sonnette_3, #ls_sonnette_4, #ls_sonnette_5
+ {
+	font-family: arimo;
+	font-weight: normal;
+	color: #999;
+	font-size: 12px;
+	margin-top: -20px;
+	height: 20px;
+	line-height: 65px;
+	text-shadow: 1px 1px 5px black;
+	
+}
+
+#desc_sonnette_1, #desc_sonnette_2, #desc_sonnette_3, #desc_sonnette_4, #desc_sonnette_5
+{
+	font-family: arimo;
+	font-weight: normal;
+/*	color: #999; */
+	color: #F2DDB3;
+	font-size: 17px;
+	margin-top: -20px;
+	height: 25px;
+	line-height: 15px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#sonnette_1, #sonnette_2, #sonnette_3, #sonnette_4, #sonnette_5
+{
+	font-family: arimo;
+	font-weight: bold;
+	width: 162px;
+	padding: 10px;
+/*	border: 1px solid #1E1E1F; */
+	border: 1px solid transparent;
+	border-radius: 0px;
+	height: 58px;
+	line-height: 55px; 		
+	color: #999;
+	font-size:40px;
+	text-shadow: 1px 1px 4px black;
+	
+}
+
+#sonnette > img
+{	
+	width: 640px;
+	height: 480px;
+	margin-left: 180px;
+	margin-top: -425px;
+	background: url(../icons/offline.jpg) no-repeat;
+    background-size: 640px 480px;
+}

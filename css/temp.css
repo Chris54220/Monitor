@@ -26,7 +26,8 @@
     color: #999;
     font-size: 40px;
     text-shadow: 1px 1px 4px black;
-    margin-left: 145px;
+    /*margin-left: 145px;*/
+    margin-left: 120px;
     width: 183px;
 	border: 1px solid transparent;
 	line-height: 60px; 
@@ -38,7 +39,8 @@
     position: absolute;
     width: 130px;
     height: 60px;
-    margin-left: 338px;
+    /*margin-left: 338px;*/
+    margin-left: 288px;
     margin-top: -210px;
     font-size: 40px;
 	font-family: arimo;
@@ -72,7 +74,8 @@
     position: absolute;
     width: 130px;
     height: 60px;
-    margin-left: 338px;
+    /*margin-left: 338px;*/
+    margin-left: 305px;
     margin-top: -141px;
     font-size: 40px;
 	font-family: arimo;
@@ -112,17 +115,25 @@
     font-size: 40px;
     text-shadow: 1px 1px 4px black;
     text-align: right;
-    margin-left: 338px;
+    /*margin-left: 338px;*/
+    margin-left: 305px;
     width: 130px;
 	border: 1px solid transparent;
 	line-height: 60px; 
+}
+
+#temp1d, #temp1e
+{
+	background: url("http://www.icone-png.com/png/11/10869.png") no-repeat center center;
+	background-size: 50%;
 }
 
 #temp1, #temp2
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 454px;
+	/*width: 454px;*/
+	width: 420px;
 	padding: 10px;
 	border: 1px solid transparent;
  	box-shadow: 1px 1px 1px #999; 
@@ -142,7 +153,8 @@
  {
 	font-family: arimo;
 	font-weight: bold;
-	width: 162px;
+	/*width: 162px;*/
+	width: 152px;
 	padding: 10px;
 	border: 1px solid transparent;
 	border-radius: 0px;
@@ -156,7 +168,8 @@
 }
 #temp5, #temp10, #temp15, #temp20
 { 
-	width: 184px; 
+	/*width: 184px;*/ 
+	width: 154px; 
 }
 #desc_temp1, #desc_temp2
 {

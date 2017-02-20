@@ -1,7 +1,12 @@
-﻿#map 
-{
-	width: 935px;
+﻿#map {
+	/*width: 935px;*/
+	width: 885px;
 	height: 505px;
+}
+
+
+.avoid-clicks {
+  pointer-events: none;
 }
 
 @media screen and (min-height: 610px) {
@@ -10,8 +15,3 @@
 		height: 590px;
 	}
 }
-
-.avoid-clicks {
-  pointer-events: none;
-}
-

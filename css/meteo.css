@@ -1,4 +1,4 @@
-#ls_meteo1, #ls_meteo3, #ls_meteo25, #ls_meteo4,
+#ls_meteo1, #ls_meteo2, #ls_meteo3, #ls_meteo25, #ls_meteo4, #ls_meteo5,
 #ls_meteo6, #ls_meteo7, #ls_meteo8, #ls_meteo9, #ls_meteo10, #ls_meteo11
 {
 	font-family: arimo;
@@ -12,7 +12,7 @@
 	
 }
 
-#desc_meteo1, #desc_meteo3, #desc_meteo25, #desc_meteo4, #moontxt,
+#desc_meteo1, #desc_meteo2, #desc_meteo3, #moontxt, #desc_meteo4, #desc_meteo5,
 #desc_meteo6, #desc_meteo7, #desc_meteo8, #desc_meteo9, #desc_meteo10, #desc_meteo11
 {
 	font-family: arimo;
@@ -27,11 +27,12 @@
 	
 }
 
-#meteo1, #meteo3, #meteo25, #moon 
+#meteo3, #moon
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 230px;
+	/*width: 277px;*/
+	width: 252px;
 	padding: 5px;
 /*	border: 1px solid #1E1E1F; */
 	border: 1px solid transparent;
@@ -45,11 +46,14 @@
 	
 }
 
+
+#meteo1, #meteo2, #meteo4, #meteo5, 
 #meteo6, #meteo7, #meteo8, #meteo9, #meteo10, #meteo11
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 162px;
+	/*width: 162px;*/
+	width: 152px;
 	padding: 10px;
 /*	border: 1px solid #1E1E1F; */
 	border: 1px solid transparent;
@@ -62,16 +66,30 @@
 	
 }
 
+/*
+#meteo4
+{
+	background: url("http://www.icone-png.com/png/11/10869.png") no-repeat center center;
+	background-size: cover;
+}
+*/
+
 #meteo7, #meteo8, #meteo9, #meteo10
 { 
-	width: 134px; 
+	/*width: 114px; */
+	width: 123px; 
 }
 
 #meteo6, #meteo11
 { 
-	width: 135px; 
+	/*width: 115px; */
+	width: 122px; 
 }
 
+#meteo1
+{ 
+	line-height: 25px; 		
+}
 
 #desc_jour0, #desc_jour1, #desc_jour2, #desc_jour3, 
 #temp_day_0_1H00, #temp_day_0_3H00, #temp_day_0_5H00, #temp_day_0_7H00, #temp_day_0_9H00, #temp_day_0_11H00, 
@@ -87,7 +105,7 @@
 	font-weight: normal;
 /*	color: #999; */
 	color: #F2DDB3;
-	font-size: 15px;
+	font-size: 20px;
 	margin-top: -20px;
 	height: 25px;
 	line-height: 15px;
@@ -100,40 +118,9 @@
 	opacity: 0.3;
 }
 
-#jour,
-#day_1H, #day_3H, #day_5H, #day_7H, #day_9H, #day_11H,
-#day_13H, #day_15H, #day_17H, #day_19H, #day_21H, #day_23H
-{
-	font-family: arimo;
-	font-weight: bold;
-	width: 46px;
-	padding: 10px;
-	border: 1px solid transparent;	
-	color: #F2DDB3;
-	font-size: 13px;
-	text-shadow: 1px 1px 4px black;
-}
-
-#jour0, 
+#jour0, #jour1, #jour2, #jour3, 
 #day_0_1H00, #day_0_3H00, #day_0_5H00, #day_0_7H00, #day_0_9H00, #day_0_11H00, 
-#day_0_13H00, #day_0_15H00, #day_0_17H00, #day_0_19H00, #day_0_21H00, #day_0_23H00
-{
-	font-family: arimo;
-	font-weight: bold;
-	width: 46px;
-	padding: 10px;
-/*	border: 1px solid #1E1E1F; */
-	border: 1px solid transparent;
-	border-radius: 0px;
-	height: 58px;
-	line-height: 55px; 		
-	color: #999;
-	font-size:40px;
-	margin-top: -15px;
-	text-shadow: 1px 1px 4px black;
-}
-
-#jour1, #jour2, #jour3, 
+#day_0_13H00, #day_0_15H00, #day_0_17H00, #day_0_19H00, #day_0_21H00, #day_0_23H00,
 #day_1_1H00, #day_1_3H00, #day_1_5H00, #day_1_7H00, #day_1_9H00, #day_1_11H00,
 #day_1_13H00, #day_1_15H00, #day_1_17H00, #day_1_19H00, #day_1_21H00, #day_1_23H00,
 #day_2_1H00, #day_2_3H00, #day_2_5H00, #day_2_7H00, #day_2_9H00, #day_2_11H00,
@@ -143,7 +130,8 @@
 {
 	font-family: arimo;
 	font-weight: bold;
-	width: 46px;
+	/*width: 46px;*/
+	width: 41.6px;
 	padding: 10px;
 /*	border: 1px solid #1E1E1F; */
 	border: 1px solid transparent;
@@ -152,16 +140,17 @@
 	line-height: 55px; 		
 	color: #999;
 	font-size:40px;
-	margin-top: -10px;
 	text-shadow: 1px 1px 4px black;
 }
 
 #jour0, #jour1, #jour2, #jour3
 {
+	/*width: 55px;*/
 	width: 55px;
 	font-size:27px;
 	color:#F2DDB3;
 	text-align: left;
+	margin-top: -5px;
 }
 
 #sep

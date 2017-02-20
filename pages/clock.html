@@ -234,8 +234,8 @@ hauteur: 541px
 		secondeCSS[jsTransform + 'Origin'] = '50% 175px';
 		minuteCSS[jsAnim] = 'tour 3600s -' + (tt.getMinutes()*60 + tt.getSeconds()) + 's steps(60, end) infinite';
 		minuteCSS[jsTransform + 'Origin'] = '50% 145px';
-		heureCSS[jsAnim] = 'tour 43200s -' + ((tt.getHours()%12)*3600 + tt.getMinutes()*60 + tt.getSeconds()) + 's linear infinite';	// heure française
-		//heureCSS[jsAnim] = 'tour 86400s -' + (tt.getHours()*3600 + tt.getMinutes()*60 + tt.getSeconds()) + 's linear infinite';			// heure japonaise
+		//heureCSS[jsAnim] = 'tour 43200s -' + ((tt.getHours()%12)*3600 + tt.getMinutes()*60 + tt.getSeconds()) + 's linear infinite';	// heure française
+		heureCSS[jsAnim] = 'tour 86400s -' + (tt.getHours()*3600 + tt.getMinutes()*60 + tt.getSeconds()) + 's linear infinite';			// heure japonaise
 		heureCSS[jsTransform + 'Origin'] = '50% 100px';
 		for(var i = 0; i < 12; i++){
 			$sepactu = $sep.cloneNode(true);
