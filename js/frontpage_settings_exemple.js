@@ -116,6 +116,7 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 				['domo.html','raspberry.png'],
 				['logs.html','log.png'],
 				['meteo.html','meteo.png'],
+				['iframe.html','domoticz.png'],
 			//	['agenda.html','agenda.png'],
 			//	['pluie.html','pluie.png'],
 			//	['page1.html','light1.png'],
