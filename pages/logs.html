@@ -71,17 +71,26 @@ function RefreshLogData() {
                 totalText = totalText.replace(res[0] + " " + res[1], "")
                     .replace("User:", "<font color='#81d4fa'>User: </font>")
                     .replace("(teleinfo)", "<font color='#0099CC'>téléinfo: </font>")
-                    .replace("(météo)", "<font color='#66FF66'>météo: </font>")
+                    .replace("(Meteo)", "<font color='#66FF66'>météo: </font>")
                     .replace("LUA:", "<font color='#fff176'>LUA: </font>")
                     .replace("(Weather Underground)", "<font color='#eceff1'>Weather Underground: </font>")
-                    .replace("(rfxcom)", "<font color='#ec407a'>rfxcom: </font>")
+                    .replace("(433Mhz)", "<font color='#ec407a'>Rfxcom: </font>")
+                    .replace("(868Mhz)", "<font color='#31B404'>Zwave: </font>")
+					.replace("(Virtuel)", "<font color='#2E2EFE'>Virtuel: </font>")
                     .replace("Hardware Monitor:", "<font color='#ffa726'>Hardware Monitor: </font>")
                     .replace("Error:", "<font color='red'>Error: </font>")
-                    .replace("EventSystem: Script event triggered:", "<font color='#ffa726'>Script event triggered: </font>")
+                    .replace("EventSystem: Script event triggered:", "<font color='#ffa726'>Script: </font>")
                     .replace("EventSystem:", "<font color='#ffa726'>EventSystem: </font>")
-                    .replace("(Philips Hue Bridge)", "<font color='#e91e63'>Philips Hue: </font>")
-                    .replace("/home/vil1driver/domoticz/scripts/lua/", "");
-                    
+					.replace("Fetching data (System sensors)", "<font color='#FBFBEF'>Récupération des données</font>")
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////					
+					.replace("script_time_Info_Tel.lua", "<font color='#FBFBEF'>Info Tel </font>")
+					.replace("script_time_meteofrance_pluie.lua", "<font color='#FBFBEF'>Météo france pluie </font>")
+					.replace("script_time_trajet_google.lua", "<font color='#FBFBEF'>Trajet google </font>")
+					.replace("script_time_info_du_jour.lua", "<font color='#FBFBEF'>Info du jour </font>")
+					.replace("script_time_reveil_parent.lua", "<font color='#FBFBEF'>Reveil parent </font>")
+					.replace("script_time_Vigilance_Meteofrance.lua", "<font color='#FBFBEF'>Météo france Vigilance </font>")
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////					
+					.replace("/home/pi/domoticz/scripts/lua/", "");
 
                 text += totalText;
                 text += "<br>";
