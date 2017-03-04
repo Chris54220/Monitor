@@ -8,6 +8,7 @@
 <img src="https://drive.google.com/uc?id=0BwsyidAGqsS_dDR6UDlidjNPdTg"/>
 
 
+
 # instal Custom
 
 git clone https://github.com/Chris54220/Monitor.git /home/pi/domoticz/www/monitor
