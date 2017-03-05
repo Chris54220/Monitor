@@ -71,7 +71,6 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 		
 			// ['html page name (location must be in 'monitor/pages/')','menu icon name (location must be in 'monitor/icons/menu/')],
 			
-				['slideshow.html'], 
 				['clock.html','clock.png'],
 				['temp.html','chauffage.png'],
 				['chambre.html','chambre.png'],
