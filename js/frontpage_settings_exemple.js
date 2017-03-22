@@ -19,16 +19,17 @@ var txt_blind_stop = '\'Arrêt\'';
 var txt_wrong_code = 'Mot de pass erroné';
 
 // Change backgrounds images,size and brightness
-var bg_day = '';									// image de fond le jour, laisser vide pour fond noir
-var bg_night = '';									// image de fond la nuit, laisser vide pour fond noir
-var bg_day_spring = 'wallpaper/spring_day.jpg';		// image de fond pour la saison printemps
-var bg_night_spring = 'wallpaper/spring_night.jpg';
-var bg_day_summer = 'wallpaper/summer_day.jpg';		// image de fond pour la saison été
-var bg_night_summer = 'wallpaper/summer_night.jpg';
-var bg_day_autumn = 'wallpaper/autumn_day.png';		// image de fond pour la saison automne
-var bg_night_autumn = 'wallpaper/autumn_night.jpg';
-var bg_day_winter = 'wallpaper/winter_day.jpg';		// image de fond pour la saison hiver
-var bg_night_winter = 'wallpaper/winter_night.jpg';
+var bg_day = 'wallpaper/';							// image de fond le jour, laisser vide pour fond noir
+var bg_night = 'wallpaper/';						// image de fond la nuit, laisser vide pour fond noir
+var bg_count = 10; 									//nombre d'images   
+var bg_day_spring = '';								// image de fond pour la saison printemps
+var bg_night_spring = '';
+var bg_day_summer = '';								// image de fond pour la saison été
+var bg_night_summer = '';
+var bg_day_autumn = '';								// image de fond pour la saison automne
+var bg_night_autumn = '';
+var bg_day_winter = '';								// image de fond pour la saison hiver
+var bg_night_winter = '';
 var bg_size = 'cover';								// taille de l'image de fond (ex: '1024px 768px') 'cover' : "couvre" au mieux tout le fond.
 var bg_dayBright = 0.5;								// luminosité du fond le jour (0=normal 1=noir)
 var bg_nightBright = 0.7;							// luminosité du fond la nuit (0=normal 1=noir) (0=normal 1=noir)

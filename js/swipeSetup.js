@@ -15,7 +15,14 @@ mySwipe = Swipe(document.getElementById('slider'),{
     continuous: true,
 	draggable: false,
     disableScroll: false,
-    stopPropagation: true
+    stopPropagation: true,
+   	callback:function(index) {
+		if (index === 0){
+			$('#black').css('background','rgba(0,0,0,0)');
+		}else{
+			$('#black').css('background','rgba(0,0,0,0.5)');
+		}   
+	}
 });
 
 mySwipe.setup();
