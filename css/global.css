@@ -62,6 +62,11 @@ body,html
 body
 {
 	background-color: #000;
+	-webkit-transition: background-image 0.5s ease-in-out;
+	-moz-transition: background-image 0.5s ease-in-out;
+	-ms-transition: background-image 0.5s ease-in-out;
+	-o-transition: background-image 0.5s ease-in-out;
+	transition: background-image 0.5s ease-in-out;
 }
 
 /* preload */
@@ -169,7 +174,7 @@ img[alt] {
 	text-shadow: none;
 }
 
-#popup_switch, #popup_graph,
+#popup_switch, #popup_graph, #popup_pollen,
 #popup_meteo0, #popup_meteo1, #popup_meteo2, #popup_meteo3, #popup_meteo4,
 #popup_secpanel, #popup_help, #popup_camera, #popup_selector, #popup_range
 {
@@ -282,6 +287,13 @@ img[alt] {
     height: 280px;
     margin-left: -430px;
     margin-top: -180px;      
+}
+
+#popup_pollen
+{
+	width: 230px;
+	height: 450px;
+    margin-top: -250px;
 }
 
 .highcharts-container { 

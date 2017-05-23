@@ -21,7 +21,7 @@ var txt_wrong_code = 'Mot de pass erroné';
 // Change backgrounds images,size and brightness
 var bg_day = 'wallpaper/';							// image de fond le jour, laisser vide pour fond noir
 var bg_night = 'wallpaper/';						// image de fond la nuit, laisser vide pour fond noir
-var bg_count = 10; 									//nombre d'images   
+var bg_count = 11; 									// nombre d'images  
 var bg_day_spring = '';								// image de fond pour la saison printemps
 var bg_night_spring = '';
 var bg_day_summer = '';								// image de fond pour la saison été
@@ -72,14 +72,15 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 		
 			// ['html page name (location must be in 'monitor/pages/')','menu icon name (location must be in 'monitor/icons/menu/')],
 			
-				['clock.html','clock.png'],
+				['clock.html','home.png'],
 				['temp.html','chauffage.png'],
 				['chambre.html','chambre.png'],
 				['domo.html','raspberry.png'],
-				['logs.html','log.png'],
+				['logs.html','log2.png'],
 				['meteo.html','meteo.png'],
-				['iframe.html','domoticz.png'],
-			//	['agenda.html','agenda.png'],
+				['shaiya.html'],
+			//	['iframe.html','domoticz.png'],		// Page web plein ecran
+			//	['agenda.html','agenda.png'],		// agenda google
 			//	['pluie.html','pluie.png'],
 			//	['page1.html','light1.png'],
 			//	['page2.html','light2.png'],
@@ -103,9 +104,9 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 				['0','Hide','clock4',''],																		//
 				['0','Hide','clock5',''],																		//
 				['0','Hide','clock7',''],																		//
-				['0','Hide','clock6',''],																		//
+			//	['0','Hide','clock6',''],																		// Info du jour
 				['0','Hide','clock8',''],																		//
-			//	['0','Hide','clock9',''],																		// Info du jour
+				['0','Hide','clock9',''],																		//
 				['0','Hide','clock10',''],																		//
 				['0','Hide','clock11',''],																		//
 				['0','Hide','clock12',''],																		//
@@ -123,8 +124,11 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
 				['Vigilance Meteo','Level','meteo1','','2','',''],												// Vigilance Météo Logo
 				['Vigilance Meteo','Data','desc_meteo1','','','',''],											// Vigilance Météo texte
+				['Vigilance Crue','Level','meteo2','','2','',''],												// Vigilance Crue Logo
+				['Vigilance Crue','Data','desc_meteo2','','','',''],											// Vigilance Crue texte
 				['Exterieur','ForecastStr','meteo3','','','','',''],											// icon météo (idx du capteur de température extérieur virtuel Weather Underground)
 				['0','Clock','desc_meteo3','','','','color:#F1E9A4;font-family:mekar_script'],					// heure et date
+				['0','Html','meteo4','<span style="color:#EBF4F7" onclick="lightbox_open(\'pollen\', 25400)">Pollens</span>','','','',''],	// Pollens
 				
             // temp
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
@@ -134,7 +138,7 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 				['Exterieur','Barometer','temp1c','','','','font-size:80%;color:#EBF4F7',''],					// Barométre Exterieur
                 ['Exterieur2','DirectionStr','temp1d','','','','font-size:80%;color:#EBF4F7',''],				// direction du vent
                 ['Exterieur2','Speed','temp1e','','','','font-size:80%;color:#EBF4F7',''],						// vitesse du vent
-				['Exterieur','HumidityStatus','temp1f','','','','font-size:80%;color:#88B496',''],				// Humidité Status Exterieur
+				['Exterieur','HumidityStatus','temp1f','','','','font-size:75%;color:#88B496',''],				// Humidité Status Exterieur
 				['Pluie','Data','temp1g','','','','font-size:30%;color:#EBF4F7',''],							// Pluie
 				['Salon','Temp','temp2','','','','',''],														// Temperature Interieur
 				['0','Text','desc_temp2','Interieur','','','',''],												//
@@ -169,25 +173,25 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 			
 			// Chambre
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
-				['0','','chambre1','','','','',''],																//
+				['0','Hide','chambre1','','','','',''],															//
 				['0','Text','desc_chambre1','Chambre','','','',''],												//
-            	['Volet Chambre','Level','chambre1a','Volet','','','',''],										// Volet Chambre
+            	['0','Hide','chambre1a','','','','',''],														//
             //	['0','','chambre1b','','','','',''],															// Lampe Tout la chambre 
-				['Fenetre Chambre','Status','chambre1c','Fenetre','2','','',''],								// Fenetre Chambre
-				['0','','chambre1d','','','','',''],														//
-                ['0','','chambre1e','','','','',''],														//
-				['Mode Volet Chambre','Level','chambre1f','Mode Volet','','','font-size:50%;color:#EBF4F7',''], //Mode Volet Chambre
-				['0','','chambre1g','','','','',''],														//
-				//['0','Hide','chambre2','','','','',''],														// Reveil Chris
-          		['0','Hide','chambre3','','','','',''],															//
-          		//['0','Hide','chambre4','','','','',''],														// Reveil General
-          		['0','Hide','chambre5','','','','',''],															//			
-				//['0','Hide','chambre6','','','','',''],														// Reveil Julie
-          		['Chevet Chris','Status','chambre7','Chevet Chris','2','','',''],								// Lamp chevet Chris
-				['0','Hide','chambre8','','','','',''],															//
-          		['Dressing','Status','chambre9','Dressing','2','','',''],										// Lamp dressing	
-				['0','Hide','chambre10','','','','',''],														//
-          		['Chevet Julie','Status','chambre11','Chevet Julie','2','','',''],								// Lamp chevet Julie
+				['0','Hide','chambre1c','','','','',''],														//
+				['FreePlayer Chambre','Status','chambre1d','FreePlayer','2','','',''],							// FreePlayer
+                ['0','Hide','chambre1e','','','','',''],														//
+			//	['0','Hide','chambre1f','','','','',''],														// Reveil Chris														//
+			//	['0','Hide','chambre1g','','','','',''],														// Reveil Julie
+          		['Chevet Chris','Status','chambre2','Chevet Chris','2','','',''],								// Lamp chevet Chris
+				['0','Hide','chambre3','','','','',''],															//
+          		['Dressing','Status','chambre4','Dressing','2','','',''],										// Lamp dressing	
+				['0','Hide','chambre5','','','','',''],															//
+          		['Chevet Julie','Status','chambre6','Chevet Julie','2','','',''],								// Lamp chevet Julie
+				['0','Hide','chambre7','','','','',''],															//
+          		['0','Hide','chambre8','','','','',''],															//
+          		['0','Hide','chambre9','','','','',''],															//
+          		['0','Hide','chambre10','','','','',''],														//			
+				['0','Hide','chambre11','','','','',''],														//
 				['0','Hide','chambre12','','','','',''],														//
           		['0','Hide','chambre13','','','','',''],														//	
 				['0','Hide','chambre14','','','','',''],														//
@@ -199,113 +203,59 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 				['0','Hide','chambre20','','','','',''],														//
           		['0','Hide','chambre21','','','','',''],														//	
 
-				
-			//page 4
+			//shaiya
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
-				['0','','cell4_1','','','','',''],																//
-				//['0','','cell4_1a','','','','',''],															//
-				//['0','','cell4_1b','','','','',''],															//
-				['0','','cell4_2','','','','',''],																//
-				//['0','','cell4_2a','','','','',''],															//
-				//['0','','cell4_2b','','','','',''],															//
-				['0','','cell4_3','','','','',''],																//
-				['0','','cell4_4','','','','',''],																//
-				//['0','','cell4_4a','','','','',''],															//
-				//['0','','cell4_4b','','','','',''],															//
-          		['0','','cell4_5','','','','',''],																//
-				//['0','','cell4_5a','','','','',''],															//
-				//['0','','cell4_5b','','','','',''],															//
-                ['0','','cell4_6','','','','',''],																//
-				['0','','cell4_7','','','','',''],																//
-				['0','','cell4_8','','','','',''],																//
-				['0','','cell4_9','','','','',''],																//
-				['0','','cell4_10','','','','',''],																//
-				['0','','cell4_11','','','','',''],																//
-				['0','','cell4_12','','','','',''],																//
-				['0','','cell4_13','','','','',''],																//
-				['0','','cell4_14','','','','',''],																//
-				['0','','cell4_15','','','','',''],																//
-				['0','','cell4_16','','','','',''],																//
-				['0','','cell4_17','','','','',''],																//
-				['0','','cell4_18','','','','',''],																//
-				['0','','cell4_19','','','','',''],																//
-				['0','','cell4_20','','','','',''],																//
-				['0','','cell4_21','','','','',''],																//
-				['0','','cell4_22','','','','',''],																//
-				['0','','cell4_23','','','','',''],																//
-				['0','','cell4_24','','','','',''],																//
-				['0','','cell4_25','','','','',''],																//
-				['0','','cell4_26','','','','',''],																//  
-
-			// page 5
-			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
-				['0','','cell5_1','','','','',''],																//
-                ['0','','cell5_1a','','','','',''],																//
-                ['0','','cell5_1b','','','','',''],																//
-				['0','','cell5_1c','','','','',''],																//
-                ['0','','cell5_1d','','','','',''],																//
-                ['0','','cell5_1e','','','','',''],																//
-				['0','','cell5_1f','','','','',''],																//
-				['0','','cell5_1g','','','','',''],																//
-				['0','','cell5_2','','','','',''],																//
-                ['0','','cell5_2a','','','','',''],																//
-                ['0','','cell5_2b','','','','',''],																//
-				['0','','cell5_2c','','','','',''],																//
-                ['0','','cell5_2d','','','','',''],																//
-                ['0','','cell5_2e','','','','',''],																//
-				['0','','cell5_2f','','','','',''],																//
-				['0','','cell5_2g','','','','',''],																//
-				['0','','cell5_3','','','','',''],																//
-                ['0','','cell5_3a','','','','',''],																//
-                ['0','','cell5_3b','','','','',''],																//
-				['0','','cell5_3c','','','','',''],																//
-                ['0','','cell5_3d','','','','',''],																//
-                ['0','','cell5_3e','','','','',''],																//
-				['0','','cell5_3f','','','','',''],																//
-				['0','','cell5_3g','','','','',''],																//
-				['0','','cell5_4','','','','',''],																//
-                ['0','','cell5_4a','','','','',''],																//
-                ['0','','cell5_4b','','','','',''],																//
-				['0','','cell5_4c','','','','',''],																//
-                ['0','','cell5_4d','','','','',''],																//
-                ['0','','cell5_4e','','','','',''],																//
-				['0','','cell5_4f','','','','',''],																//
-				['0','','cell5_4g','','','','',''],																//
-				['0','','cell5_5','','','','',''],																//
-				['0','','cell5_6','','','','',''], 																//
-          		['0','','cell5_7','','','','',''],																//
-          		['0','','cell5_8','','','','',''],																//
-          		['0','','cell5_9','','','','',''],																//
-
+          		['Shaiya','Level','shaiya_1','Shaiya','2','','',''],											// Lampe de Shaiya
+          		['0','','shaiya_2','','','','',''],																//
+          		['0','','shaiya_3','','','','',''],																//
+          		['0','','shaiya_4','','','','',''],																//
+          		['0','','shaiya_5','','','','',''],																//
+				['0','Camera','shaiya_video','http://192.168.0.145/cgi-bin/viewer/video.jpg','','','',''],			//Camera
+			
 			//domo
 			//	['idx','value','cellule','description','1=lastseen 2=icon 3=both ou J+x(popup météo)','pas de thermostat','override css','Alarme ou valeur max de thermostat'],
-				['0','Hide','domo1','','','','',''],															// 
-				['0','Hide','domo2','','','','',''],															//
-				['Raspi','Temp','domo3','Raspberry','','','',''],												// Temperature Raspberry
-				['0','Hide','domo4','','','','',''],															// 
-          		['0','Hide','domo5','','','','',''],															//
-                ['0','Hide','domo6','','','','',''],															//
-				['Raspi CPU','Data','domo7','CPU','','','color:#EBF4F7',''],									// CPU Raspberry
-				['0','Hide','domo8','','','','',''],															//
-				//['0','Hide','domo9','','','','',''],															// Ip public
-				['0','Hide','domo10','','','','',''],															//
-				['0','Hide','domo11','','','','',''],															//
-				['Raspi Memory','Data','domo12','Memory','','','color:#EBF4F7',''],								// Memory Raspberry
-				['0','Hide','domo13','','','','',''],															//
-				['PING','Data','domo14','Ping','','','color:#EBF4F7',''],										// Ping
-				['0','Hide','domo15','','','','',''],															//
-				['0','Hide','domo16','','','','',''],															//
-				['Raspi SD/boot','Data','domo17','SD/boot','','','color:#EBF4F7',''],							// SD/boot Raspberry
-				['0','Hide','domo18','','','','',''],															//
-				['DOWNLOAD','Data','domo19','Download','','','color:#EBF4F7',''],								// Download
-				['0','Hide','domo20','','','','',''],															//
-				['0','Hide','domo21','','','','',''],															//
-				['Raspi SD/root','Data','domo22','SD/root','','','color:#EBF4F7',''],							// HDD Raspberry
-				['0','Hide','domo23','','','','',''],															//
-				['0','Hide','domo24','','','','',''],															//
-				['0','Date','domo25','','','','font-size:50%;color:#F1E9A4;font-family:mekar_script',''],		// Date
-				['UPLOAD','Data','domo26','Upload','','','color:#EBF4F7',''],									// Upload
-				
+				['Raspi','Graph','domo_1','Raspberry','temp','day','te','°C'],									// Temperature Raspberry Graph
+                ['0','Hide','domo_1a','','','','',''],															//
+                ['0','Hide','domo_1b','','','','',''],															//
+				['Raspi','Temp','domo_1c','Raspberry','','','',''],												// Temperature Raspberry
+                ['0','Hide','domo_1d','','','','',''],															//
+                ['0','Hide','domo_1e','','','','',''],															//
+				['0','Hide','domo_1f','','','','',''],															//
+				['0','Hide','domo_1g','','','','',''],															//
+				['Raspi CPU','Graph','domo_2','CPU','Percentage','day','v','%'],								// CPU Raspberry Graph
+                ['0','Hide','domo_2a','','','','',''],															//
+				['0','Hide','domo_2b','','','','',''],															//
+				['Raspi CPU','Data','domo_2c','CPU','','','color:#EBF4F7',''],									// CPU Raspberry
+                ['0','Hide','domo_2d','','','','',''],															//
+                ['0','Hide','domo_2e','','','','',''],															//
+				['0','Hide','domo_2f','','','','',''],															//
+				['0','Hide','domo_2g','','','','',''],															//
+				['UPLOAD','Graph','domo_3','Upload','Percentage','day','v','Mbit/s'],							// Upload Graph
+                ['0','Hide','domo_3a','','','','',''],															//
+                ['0','Hide','domo_3b','','','','',''],															//
+				['UPLOAD','Data','domo_3c','Upload','','','color:#EBF4F7;font-size:60%',''],					// Upload
+                ['0','Hide','domo_3d','','','','',''],															//
+                ['0','Hide','domo_3e','','','','',''],															//
+				['0','Hide','domo_3f','','','','',''],															//
+				['0','Hide','domo_3g','','','','',''],															//
+				['DOWNLOAD','Graph','domo_4','Download','Percentage','day','v','Mbit/s'],						// Download graph
+                ['0','Hide','domo_4a','','','','',''],															//
+                ['0','Hide','domo_4b','','','','',''],															//
+				['DOWNLOAD','Data','domo_4c','Download','','','color:#EBF4F7;font-size:60%',''],				// Download
+                ['0','Hide','domo_4d','','','','',''],															//
+                ['0','Hide','domo_4e','','','','',''],															//
+				['0','Hide','domo_4f','','','','',''],															//
+				['0','Hide','domo_4g','','','','',''],															//
+				//['0','','domo_5','','','','',''],																// Ip public
+				['PING','Data','domo_6','Ping','','','color:#EBF4F7;font-size:50%',''],							// Ping
+          		['0','','domo_7','','','','',''],																//
+          		['0','','domo_8','','','','',''],																//
+          		['0','','domo_9','','','','',''],																//
+				['0','','domo_10','','','','',''],																//
+          		['0','','domo_11','','','','',''],																//
+				['Raspi Memory','Data','domo_12','Memory','','','color:#EBF4F7',''],							// Memory Raspberry
+				['Raspi SD/boot','Data','domo_13','SD/boot','','','color:#EBF4F7',''],							// SD/boot Raspberry
+				['Raspi SD/root','Data','domo_14','SD/root','','','color:#EBF4F7',''],							// HDD Raspberry
 				
         []];
         $.PageArray_Scenes = [		// placez ci dessous vos groupes et scènes
@@ -321,17 +271,16 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
             
 			//['idx','value','cellule','description','override css'],
            
-                ['Info_du_jour','Value','clock9','','color:#e77800'],									// Info du jour
-				['IP_PUBLIC','Value','domo9','IP Public','color:#EBF4F7;font-size:200%'],				// Ip public
-				['Reveil_Chris','Value','chambre2','Reveil Chris','color:#EBF4F7'],						// Reveil Chris
-				['Reveil_Event','Value','chambre4','Reveil Event','color:#EBF4F7'],						// Reveil Event
-				['Reveil_Julie','Value','chambre6','Reveil Julie','color:#EBF4F7'],						// Reveil Julie
-				['Pluie à 10mn','Value','meteo6','Pluie à 10mn','font-size:30%'],  
-				['Pluie à 20mn','Value','meteo7','Pluie à 20mn','font-size:30%'],   
-				['Pluie à 30mn','Value','meteo8','Pluie à 30mn','font-size:30%'],
-				['Pluie à 40mn','Value','meteo9','Pluie à 40mn','font-size:30%'],
-				['Pluie à 50mn','Value','meteo10','Pluie à 50mn','font-size:30%'],
-				['Pluie à 60mn','Value','meteo11','Pluie à 60mn','font-size:30%'],
+                ['Info_du_jour','Value','clock6','',''],												// Info du jour
+				['IP_PUBLIC','Value','domo_5','IP Public','color:#EBF4F7;font-size:40%'],				// Ip public
+				['Reveil_Chris','Value','chambre1f','Reveil Chris','color:#EBF4F7'],					// Reveil Chris
+				['Reveil_Julie','Value','chambre1g','Reveil Julie','color:#EBF4F7'],					// Reveil Julie
+				['Pluie à 10mn','Value','meteo6','Pluie à 10mn','font-size:28%'],  
+				['Pluie à 20mn','Value','meteo7','Pluie à 20mn','font-size:28%'],   
+				['Pluie à 30mn','Value','meteo8','Pluie à 30mn','font-size:28%'],
+				['Pluie à 40mn','Value','meteo9','Pluie à 40mn','font-size:28%'],
+				['Pluie à 50mn','Value','meteo10','Pluie à 50mn','font-size:28%'],
+				['Pluie à 60mn','Value','meteo11','Pluie à 60mn','font-size:28%'],
 				['0','','','',''],																		//
           
         []];
@@ -384,6 +333,20 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 				break; 
 						  
 		////////////////////////////////////////////////////////////////////////////////  
+		
+			//popup text
+				case "Onduleur": // nom du bouton pushOn de mise en route de la cafetière 
+					
+					if (message.nvalue == 1)
+						lightbox_open('switch',25000,'Onduleur Secteur');
+					if (message.nvalue == 3)
+						lightbox_open('switch',25000,'Onduleur Sur Batterie');
+					if (message.nvalue == 2)
+						lightbox_open('switch',25000,'Onduleur Batterie Faible');
+					
+				break;	 
+				
+		////////////////////////////////////////////////////////////////////////////////  
 					  
 			// Sonnette (Caméra en grand + Sonnerie)
 			case "Sonnette": // nom du bouton de la télécommande
@@ -392,7 +355,7 @@ var debug = true;							// affichage des infos de debug dans la console (true/fa
 				if (message.nvalue == 1){		// status On 
 					oAudio.src = "sounds/sonnette.mp3";
 					oAudio.play();
-					var source = "http://www.saintveranmeteo.eu/villagesaintveranwebcam.jpg";
+					var source = "http://192.168.0.145/cgi-bin/viewer/video.jpg";
 					$('#popup_camera').html('<img src='+source+' >');	// charge le flux dans la popup caméra
 					lightbox_open('camera', 25000);	// afficher la popup 25 secondes 
 				}
